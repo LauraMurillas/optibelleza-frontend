@@ -35,7 +35,7 @@ const AllProducts = (props) => {
         const headers = {
           Authorization: `Bearer ${props.token}`,
         };
-  const response = await axios.get('http://127.0.0.1:8000/shoes', { headers });
+    const response = await axios.get('http://127.0.0.1:8000/api/products', { headers });
 
         console.log(response)
         props.set_all_shoes_data(response.data)

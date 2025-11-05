@@ -73,7 +73,7 @@ const Profile1 = (props) => {
                 const headers = {
                     Authorization: `Bearer ${props.token}`,
                 };
-                const response = await axios.get('http://127.0.0.1:8000/current_user_info', { headers });
+                    const response = await axios.get('http://127.0.0.1:8000/api/users/me', { headers });
                 props.set_user_name(response.data.user_name)
                 props.set_user_email(response.data.email)
                 props.set_user_adress(response.data.user_address)

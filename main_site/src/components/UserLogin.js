@@ -51,9 +51,9 @@ const UserLogin = (props) => {
         password: create_password
       };
       
-      try {
-        props.set_active_loader(true)
-  const response = await axios.post('http://127.0.0.1:8000/users', signup_data );
+  try {
+    props.set_active_loader(true)
+  const response = await axios.post('http://127.0.0.1:8000/api/auth/register', signup_data );
         props.set_active_loader(false)
         set_user_signup_email("")
     set_create_password("")
@@ -102,7 +102,7 @@ const UserLogin = (props) => {
     
     try {
       props.set_active_loader(true)
-  const response = await axios.post('http://127.0.0.1:8000/login_user', postData);
+  const response = await axios.post('http://127.0.0.1:8000/api/auth/login', postData);
       props.set_active_loader(false)
       if (!response.data.status) {
         
