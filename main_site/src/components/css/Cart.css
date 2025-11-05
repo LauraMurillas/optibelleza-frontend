@@ -94,8 +94,8 @@
     align-items: center;
     text-align: center;
     
-    border: 2px solid #bf2028;
-    color: #bf2028;
+    border: 2px solid #dbdb12;
+    color: #dbdb12;
   
     background-color: #161616;
     cursor: pointer;
@@ -124,8 +124,8 @@
   border: none;
   
   color: #161616;
-    
-  background-color: #bf2028;
+    /* boton Compra ahora*/
+  background-color: #dbdb12;
   cursor: pointer;
   padding-bottom: 3px;
   
@@ -151,18 +151,18 @@
     width: 34px;
     height: 34px;
     font-size: 19px;
-    color: #bf2028;
-    border: 2px solid #bf2028;
+    color: #e8e40a;
+    border: 2px solid #e8e40a;
     
     background-color: #161616;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.549);
     transition: 0.2s ease-in-out;
-
+    /*Iconos de las redes sociales*/
 }
 
 .home_icon_container i:hover{
-    background-color: #bf2028;
+    background-color: #20bfbf;
     color: #161616;
 }
 
@@ -179,13 +179,13 @@
 .home_content h4{
     position: relative;
     bottom: -5px;
-    color: #bf2028;
+    color: #eedc0b;
    
     font-size: 55px;
     font-style: italic;
     font-weight: 900;
     
-    
+    /*texto titulo*/
     
 }
 .home_content h4 span{
@@ -201,7 +201,8 @@
 
 }
 .home_content h3 span{
-    color: #bf2028;
+    /*texto titulo a color*/
+    color: #e3c012;
 }
 .home_content p{
     color: #f3f3f3;
@@ -210,7 +211,7 @@
 }
 @media(max-width:992px){
     .home_image_container{
-        bottom: -40px;
+        bottom: 0px;
     }
     .home_image{
         width: 350px;
@@ -240,7 +241,7 @@
         
     }
     .home_content h4{
-        color: #bf2028;
+        color: #2097bf;
        
         font-size: 33px;
         font-weight: 900;
@@ -266,8 +267,8 @@
         padding-bottom: 10px;
     }
     .home_icon_container i{
-        width: 31px;
-        height: 31px;
+        width: 28px;
+        height: 28px;
     }
     
 }

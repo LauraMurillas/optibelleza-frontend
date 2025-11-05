@@ -170,6 +170,8 @@
     height: auto;
     margin-right:5px ;
     filter: invert(100%);
+    color: #d3d90f;
+    background-color: #d3d90f;
   }
 @media(max-width:992px){
     .menu_mobile_button{
@@ -196,7 +198,8 @@
         
         height: auto;
         width: 45px;
-        
+        color: #d3d90f;
+        background-color: #d3d90f;
     }
     .nav_logo_box{
         margin-left: 0;

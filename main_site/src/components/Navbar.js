@@ -77,7 +77,7 @@ const Navbar = (props) => {
   return (
     <div className={`nave_bar`}  style={{backgroundColor:props.nave_background===true?"#1d1d1d":""}}>
       <div className="nav_logo_box">
-      <img className="logo_image" src="/nike.png"></img>
+      <img className="logo_image" src="/logo.png"></img>
       
       </div>  
       <div className="nav_items">
@@ -89,7 +89,7 @@ const Navbar = (props) => {
       </div>
 
       <div className="profile_container">
-      <div className="profile_button" style={{border:props.nave_background===true?"2px solid #bf2028":""}} onClick={()=>props.set_profile(props.profile===false?true:false)}>
+      <div className="profile_button" style={{border:props.nave_background===true?"2px solid #e5db10ff":""}} onClick={()=>props.set_profile(props.profile===false?true:false)}>
       <i class="fa-solid fa-user"></i>
       </div>   
       <div className="menu_mobile_button">
@@ -101,8 +101,8 @@ const Navbar = (props) => {
         <div className="item_count">{props.cart_items.length}</div>
       <i onClick={active_cart} style={{color:props.nave_background===true?"#f3f3f3":""}} className="fa-solid fa-cart-shopping cart-item"></i>
       </div>
-      <div className="logout_button" style={props.nave_background===true?{backgroundColor:"#bf2028",outline:"none"}:null} onClick={logout}>
-          <h1 style={{color:props.nave_background===true?"#161616":""}}>Log Out</h1>
+      <div className="logout_button" style={props.nave_background===true?{backgroundColor:"#e5db10ff",outline:"none"}:null} onClick={logout}>
+          <h1 style={{color:props.nave_background===true?"#161616":""}}>Cerrar sesión</h1>
           
           </div>
 

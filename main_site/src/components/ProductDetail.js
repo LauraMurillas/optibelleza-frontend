@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // Ensure proper import of React
+import React, { useState, useEffect, useRef } from 'react'; 
 
 import "../components/css/ProductDetail.css"
 import VanillaTilt from 'vanilla-tilt';
@@ -117,10 +117,10 @@ const ProductDetail = (props) => {
           <h3 className="product_detail_stock_heading"><span style={{color:props.particular_shoes.shoes_stock!==0?"green":"red"}}>{props.particular_shoes.shoes_stock!==0?"In Stock":"Out Of Stock"}</span></h3>
           <div className="productdetail_button_container">
             <button className="productdetail_button1" onClick={()=>{props.add_to_cart(props.particular_shoes.id,props.particular_shoes.name,props.active_size,props.productdetail_quantity)}}><i class="fa-solid fa-bag-shopping"></i> Add To Cart</button>
-            <button className="productdetail_button2"><i class="fa-solid fa-heart"></i> Wishlist</button>
+            <button className="productdetail_button2"><i class="fa-solid fa-heart"></i> Lista de deseos</button>
           </div>
           <div className="productdetail_discription_container">
-            <span>Discription:</span>
+            <span>Descripción:</span>
             <p>
               {props.particular_shoes.shoes_description}</p>
           </div>
@@ -130,7 +130,7 @@ const ProductDetail = (props) => {
             <div className="particular_outer_featured_container">
      <div className="particular_featured_heading_container">
       <div className="heading_best_selling">
-      <h4 className='particular_featured_heading'><span style={{color:"#bf2028"}}>SIMILAR</span> PRODUCTS</h4></div>
+      <h4 className='particular_featured_heading'><span style={{color:"#edda0aff"}}>Productos</span> SIMILARES</h4></div>
       
     
       

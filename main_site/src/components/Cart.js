@@ -71,14 +71,17 @@ return (
       <div className="content_container">
         <div className="home_content">
         
-          <h4>NIKE <span>SHOES</span></h4>
-          <h3>START YOUR DAY WITH <span>PERFECT</span> MOVE</h3>
+          <h4>OPTI <span>BELLEZA</span></h4>
+          <h3>COMIENZA TU DÍA CON <span>PERFECTA</span>VISIÓN</h3>
           
-          <p>hello this is website all about img elements must have an alt prop, 
-            either with meaningful text, or an empty string for decorative
+          <p>Descubre nuestra exclusiva colección de marcos para gafas
+            </p>
+            <p>Diseños únicos que combinan estilo, comodidad y calidad premium
+            </p>
+            <p>para realzar tu visión y personalidad.
             </p>
             <div className="home_button_container">
-            <Link onClick={active_all_products_page}className="home_button"><b>Buy Now</b></Link>
+            <Link onClick={active_all_products_page}className="home_button"><b>Compra Ahora</b></Link>
             <Link to="featured_section" smooth={true} duration={800} className="home_button2"><b>New Collection</b></Link>
             
 
@@ -92,7 +95,7 @@ return (
             
         </div>
       <div className="home_image_container">
-      <img className="home_image" src="/about_shoes.png"></img> 
+      <img className="home_image" src="/exclusive.jpg"></img> 
       </div> 
       </div> 
 

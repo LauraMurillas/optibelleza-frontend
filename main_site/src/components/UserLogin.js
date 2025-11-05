@@ -128,14 +128,12 @@ const UserLogin = (props) => {
     <div className="login_section">
       
       <img className="logo_image_login" src={logo} alt="Logo" />
-      
-     
-      <div className="image_container">
-        <div className="image_heading">
-          <h3 className="enamela">Bienvenido <span>!</span></h3>
-        
-        </div>
 
+      <div className="image_heading">
+          <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
+      </div>
+      
+      <div className="image_container">
         <img className="image_login" src="/exclusive.jpg"></img>
       </div>
       

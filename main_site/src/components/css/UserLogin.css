@@ -78,7 +78,7 @@
 .alert-success {
   background-color: #161616;
   
-  color: #f8f8f8;
+  color: #7820dc;
 }
 .alert-white .icon {
   display: flex;
@@ -181,7 +181,7 @@
   }
   .login-back label{
     position: relative;
-    color: #d90d70;
+    color: #0dd932;
     font-size:15px ;
     font-weight: 600 ;
     height: 20px;
@@ -192,9 +192,9 @@
    
     font-size: 25px;
     font-weight: 800;
-    color: #f8f8f8;
+    color: #ffffff;
     transform: translateZ(70px);
-   
+   /*texto "Iniciar"*/
     
     
   }
@@ -251,7 +251,9 @@
   
 }
 .website_name span{
-  color: #bf204d;
+  color: #e1ec16;
+  font-weight: bold;
+  /*texto optibelleza*/
 }
 
 .login_input_container,.signup_input_container{
@@ -337,10 +339,10 @@
     transform: translateX(0px) translateY(-19px) translateZ(40px);
     height: 4px;
     padding-inline:5px ;
-    background-color: #161616;
+    background-color: #e013ba;
     font-size: 13px;
     letter-spacing: 0.5px;
-    color: #bf2028;
+    color: #4dd608;
     opacity: 1;
     font-weight: 600;
     

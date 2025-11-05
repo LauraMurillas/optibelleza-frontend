@@ -13,10 +13,10 @@ const AllProducts = (props) => {
   const [checkAll, setCheckAll] = useState(true);
   const [checkAll1, setCheckAll1] = useState(true);
   const [categories, setCategories] = useState([
-    { name: "All", checked: true },
-    { name: "Sneakers", checked: true },
-    { name: "Sports", checked: true },
-    { name: "Casual", checked: true }
+    { name: "All", checked: true }, // all
+    { name: "Elegantes", checked: true }, //sneakers
+    { name: "Casuales", checked: true },  // sports
+    { name: "Otros", checked: true } // casual
   ]);
   const [search_product, set_search_product] = useState("")
   const [type_filter, set_type_filter] = useState("All")
@@ -70,12 +70,12 @@ const AllProducts = (props) => {
     // Update the catagori_filter state based on the "All" checkbox status
     if (!checkAll1) {
       // If "All" is checked, set catagori_filter to contain only "All"
-      set_catagori_filter(["All"]);
+      set_catagori_filter(["Elegantes"]);
     } else {
       // If "All" is unchecked, update catagori_filter state based on the checked categories
       const checkedCategories = updatedCategories1.filter(category => category.checked).map(category => category.name);
       // Filter out "All" from the checked categories and update the catagori_filter state
-      set_catagori_filter(checkedCategories.filter(category => category !== "All"));
+      set_catagori_filter(checkedCategories.filter(category => category !== "Elegantes"));
     }
 };
 
@@ -207,10 +207,10 @@ const AllProducts = (props) => {
 
         <div className="all_products_image_container">
           <div className="layer_all_product">
-            <h5 className='all_products_page_main_heading'> <span>EXPLORE</span> OUR COLLECTION</h5>
-            <p>Step into Style: Explore our diverse collection of premium footwear, curated to suit every taste and occasion</p>
+            <h5 className='all_products_page_main_heading'> <span>EXPLORA</span> NUESTRA COLECCIÓN</h5>
+            <p>Step into Style: Explora nuestra diversa colección de marcos premium, curada para adaptarse a todos los gustos y ocasiones</p>
             <div className="all_deals_button" >
-              <h1>View Deals</h1>
+              <h1>Ver Ofertas</h1>
 
             </div>
             <i className="fa-solid fa-angle-down down_all_product"></i>
@@ -223,68 +223,68 @@ const AllProducts = (props) => {
       <div className="list_product_outer_container">
         <div className={`filter_shoes_container ${show_filter === true ? "active_filter_shoes_container" : ""}`}>
           <i onClick={() => { set_show_filter(false) }} className="fa-solid fa-xmark close_filter_container_button"></i>
-          <h1 className='filter_shoes_heading'>Filter <span>Shoes</span></h1>
+          <h1 className='filter_shoes_heading'>Filtrar <span>Marcos</span></h1>
           <div className="filter_shoes_content_container">
             <div className="filter_criteria1">
-              <h3 className='filter_criteria1_heading'>TYPE</h3>
+              <h3 className='filter_criteria1_heading'>TIPO</h3>
               <div className="radio_group">
                 <label className='radio'>
                   <input type="radio" value="All" onClick={(e) => set_type_filter(e.target.value)} name="gender" defaultChecked="checked" />
-                  All
+                  Todos
                   <span></span>
                 </label>
                 <label className='radio'>
                   <input type="radio" value="Mens" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
-                  Mens
+                  Casuales
                   <span></span>
                 </label>
 
                 <label className='radio'>
                   <input type="radio" value="Womens" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
-                  Womens
+                  Elegantes
                   <span></span>
                 </label>
 
                 <label className='radio'>
                   <input type="radio" value="Unisex" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
-                  Unisex
+                  Otros
                   <span></span>
                 </label>
               </div>
             </div>
 
             <div className="filter_criteria2">
-              <h3 className='filter_criteria2_heading'>PRICE</h3>
+              <h3 className='filter_criteria2_heading'>PRECIO</h3>
               <div className="price_range">
                 <div className="price_range_value">
-                  <h5>Range: <span>60$ - {price_range}$</span></h5>
+                  <h5>Rango: <span>$30,000 - {price_range} pesos</span></h5>
 
                 </div>
 
                 <div className="range_field">
-                  <div className="value left">60$</div>
+                  <div className="value left">$30,000</div>
                   <div className='price_range_input_container'>
                     <div className='background_bar_range'></div>
 
-                    <span style={{ width: `${((price_range - 60) / (155 - 60)) * 100}%` }}></span>
-                    <input type="range" min="60" max="150" defaultValue={150} onChange={(e) => { set_price_range(e.target.value) }} />
+                    <span style={{ width: `${((price_range - 30000) / (150000 - 30000)) * 100}%` }}></span>
+                    <input type="range" min="30000" max="150000" defaultValue={150} onChange={(e) => { set_price_range(e.target.value) }} />
 
                   </div>
 
-                  <div className="value right">150$</div>
+                  <div className="value right">$150,000</div>
 
                 </div>
               </div>
 
             </div>
             <div className="filter_criteria3">
-              <h3 className='filter_criteria3_heading'>CATAGORIE</h3>
+              <h3 className='filter_criteria3_heading'>CATEGORIAS</h3>
               <div className="catagorie_container">
                 <label className='catagorie_check_box'>
                   <span></span>
                   <input type="checkbox" checked={checkAll}
                     onChange={handleCheckAll} />
-                  All
+                  Todos
                 </label>
                 <label className='catagorie_check_box'>
                   <span></span>
@@ -307,7 +307,7 @@ const AllProducts = (props) => {
               </div>
             </div>
             <div className="filter_criteria4">
-              <h3 className='filter_criteria4_heading'>STYLE</h3>
+              <h3 className='filter_criteria4_heading'>Estilo</h3>
 
               <div className="catagorie_container">
                 
@@ -315,13 +315,13 @@ const AllProducts = (props) => {
                   <span></span>
                   <input type="checkbox" checked={categories1[0].checked}
                     onChange={() => handleCategoryChange1(categories1[0].name)} />
-                  New
+                  Formales
                 </label>
                 <label className='catagorie_check_box'>
                   <span></span>
                   <input type="checkbox" checked={categories1[1].checked}
                     onChange={() => handleCategoryChange1(categories1[1].name)} />
-                  Featured
+                  Juveniles
                 </label>
 
               </div>
