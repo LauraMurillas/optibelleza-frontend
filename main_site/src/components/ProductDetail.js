@@ -130,7 +130,7 @@ const ProductDetail = (props) => {
             <div className="particular_outer_featured_container">
      <div className="particular_featured_heading_container">
       <div className="heading_best_selling">
-      <h4 className='particular_featured_heading'><span style={{color:"#edda0aff"}}>Productos</span> SIMILARES</h4></div>
+      <h4 className='particular_featured_heading'><span style={{color:"#cfad4c"}}>Productos</span> SIMILARES</h4></div>
       
     
       
@@ -158,8 +158,8 @@ const ProductDetail = (props) => {
 
               <h3>{element.name}</h3>
               
-              <h4>{element.shoes_category} Running Shoes</h4>
-              <h5 className="featured_stock_heading"style={{color:element.shoes_stock!==0?"green":"red"}}>{element.shoes_stock!==0?"In Stock":"Out Of Stock"}</h5>
+              <h4>Marco {element.shoes_category}</h4>
+              <h5 className="featured_stock_heading"style={{color:element.shoes_stock!==0?"green":"red"}}>{element.shoes_stock!==0?"En Stock":"Agotado"}</h5>
               <div className="stars_container">
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>

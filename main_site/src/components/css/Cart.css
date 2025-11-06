@@ -94,8 +94,8 @@
     align-items: center;
     text-align: center;
     
-    border: 2px solid #dbdb12;
-    color: #dbdb12;
+    border: 2px solid #cfad4c;
+    color: #cfad4c;
   
     background-color: #161616;
     cursor: pointer;
@@ -125,7 +125,7 @@
   
   color: #161616;
     /* boton Compra ahora*/
-  background-color: #dbdb12;
+  background-color: #cfad4c;
   cursor: pointer;
   padding-bottom: 3px;
   
@@ -151,8 +151,8 @@
     width: 34px;
     height: 34px;
     font-size: 19px;
-    color: #e8e40a;
-    border: 2px solid #e8e40a;
+    color: #cfad4c;
+    border: 2px solid #cfad4c;
     
     background-color: #161616;
     border-radius: 50%;
@@ -179,7 +179,7 @@
 .home_content h4{
     position: relative;
     bottom: -5px;
-    color: #eedc0b;
+    color: #cfad4c;
    
     font-size: 55px;
     font-style: italic;
@@ -202,7 +202,7 @@
 }
 .home_content h3 span{
     /*texto titulo a color*/
-    color: #e3c012;
+    color: #cfad4c;
 }
 .home_content p{
     color: #f3f3f3;

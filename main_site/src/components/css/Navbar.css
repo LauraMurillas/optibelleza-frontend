@@ -30,7 +30,7 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    border: 3px solid #bf2028;
+    border: 3px solid #cfad4c;
     
     border-radius: 50%;
     background-color: #161616;
@@ -60,7 +60,7 @@
     height: 30px;
     border-radius: 5px;
     background-color: #161616;
-    outline: 2px solid #bf2028;
+    outline: 2px solid #cfad4c;
     border-radius: 30px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.691);
    
@@ -70,7 +70,7 @@
 }
 .logout_button h1{
     font-size: 14px;
-    color: #bf2028;
+    color: #cfad4c;
     font-weight: 900;
 }
 .nav_logo_box{
@@ -86,7 +86,7 @@
 
 }
 .nav_logo_box h5 span{
-    color:#bf2028;
+    color:#cfad4c;
     font-weight: 900;
     font-size: 15px;
     
@@ -120,7 +120,7 @@
     bottom: -3px;
     display: block;
     z-index: 9;
-    background-color: #bf2028;
+    background-color: #cfad4c;
     transition: 0.3s ease-in-out;
 
 }
@@ -153,8 +153,8 @@
     width: 17px;
     height: 17px;
     border-radius: 50%;
-    background-color: #bf2028;
-    outline: 2px solid #bf2028;
+    background-color: #cfad4c;
+    outline: 2px solid #cfad4c;
     color: #161616;
     font-size: 13px;
     font-weight: 800;

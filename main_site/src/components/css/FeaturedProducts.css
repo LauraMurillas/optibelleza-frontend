@@ -35,7 +35,7 @@
     width: 100%;
 }
 .featured_heading_container .best_selling{
-    color: #bf2028;
+    color: #cfad4c;
     font-size: 25px;
     font-weight: 600;
 }
@@ -44,13 +44,13 @@
     
     padding: 7px 10px;
     background-color: #161616;
-    color: #bf2028;
+    color: #cfad4c;
     border-radius: 50px;
     margin-top: 25px;
     width: 100px;
     white-space:nowrap;
     outline: none;
-    border: 2px solid #bf2028 !important;
+    border: 2px solid #cfad4c !important;
     font-weight: 700;
     
     box-shadow: 5px 5px 6px 0px rgba(66, 66, 66, 0.471);
@@ -63,7 +63,7 @@
 }
 
 .featured_heading span{
-    color: #bf2028;
+    color: #cfad4c;
 }
 .outer_featured_container{
     
@@ -251,7 +251,7 @@
   text-align: center;
   
   border: none;
-  color: #bf2028;
+  color: #cfad4c;
   font-weight: 700;
   
   background-color: #161616;
@@ -262,7 +262,7 @@
   
   box-shadow: 3px 3px 5px rgb(76, 76, 76);
   
-  border: 2px solid #bf2028;
+  border: 2px solid #cfad4c;
   transform: translateZ(25px);
 
 }
@@ -284,7 +284,7 @@
   
   
   border: none;
-  color: #bf2028;
+  color: #cfad4c;
   
   background-color: #161616;
   cursor: pointer;
@@ -294,7 +294,7 @@
   
   box-shadow: 3px 3px 5px black;
   font-weight: 600;
-  border: 2px solid #bf2028;
+  border: 2px solid #cfad4c;
   transform: translateZ(25px);
 }
 .card_button2 i{
@@ -318,7 +318,7 @@
 .circle{
     position: absolute;
     display: block;
-    background-color: #bf2028;
+    background-color: #cfad4c;
     top:10%;
     left: 17%;
     height: 110px;
@@ -345,7 +345,7 @@
     
    
     .featured_heading_container .best_selling{
-        color: #bf2028;
+        color: #cfad4c;
         font-size: 17px;
         font-weight: 600;
     }
@@ -365,13 +365,13 @@
         
         padding: 7px 10px;
         background-color: #161616;
-        color: #bf2028;
+        color: #cfad4c;
         border-radius: 50px;
         margin-top: 25px;
         width: 100px;
         white-space:nowrap;
         outline: none;
-        border: 2px solid #bf2028 !important;
+        border: 2px solid #cfad4c !important;
         font-weight: 700;
         
         box-shadow: 5px 5px 6px 0px rgba(66, 66, 66, 0.471);

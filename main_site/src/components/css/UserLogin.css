@@ -40,7 +40,7 @@
  
  
   
-  background-color: #dbce19;
+  background-color: #cfad4c;
   
 }
 
@@ -53,7 +53,7 @@
 .success_icon{
   padding: 5px;
   border-radius: 50%;
-  background-color: #e2ca11;
+  background-color: #cfad4c;
   color: #161616;
   font-size: 15px;
   font-weight:bolder;
@@ -73,7 +73,7 @@
   
 }
 .alert strong{
-  color: #bf2028;
+  color: #cfad4c;
 }
 .alert-success {
   background-color: #161616;
@@ -213,7 +213,7 @@
     
   }
   .login-front h2 span,.login-back h2 span{
-    color: #e5ab0b;
+    color: #cfad4c;
     /*color de la letra del login*/
   }
 .login-front::after,.login-back::after{
@@ -227,7 +227,7 @@
   bottom: var(--spacer);
   right: var(--spacer);
   left: var(--spacer);
-  border: 4px solid #f5ea13;
+  border: 4px solid #cfad4c;
   transform: translateZ(20px);
   /*marco del login*/
 
@@ -251,7 +251,7 @@
   
 }
 .website_name span{
-  color: #e1ec16;
+  color: #cfad4c;
   font-weight: bold;
   /*texto optibelleza*/
 }
@@ -294,7 +294,7 @@
   background-color: #161616;
   position: absolute;
   margin-left: 10px;
-  color: #dfc70e;
+  color: #cfad4c;
   font-weight: 600;
   font-size: 15px;
   align-items: center;
@@ -317,18 +317,18 @@
     padding-bottom: 5px;
    
     outline: none;
-    border:1px solid #dfc70e;
+    border:1px solid #cfad4c;
     background-color: #161616;
     box-shadow: 3px 3px 15px black;
     border-radius: 4px;
-    color: #dfc70e;
+    color: #cfad4c;
     transform-style:preserve-3d ;
     transform: translateZ(40px);
     /*border de los inputs del login (email y contra)*/
     
   }
 .input_login2 input:focus{
- border: 1px solid #bf2028;
+ border: 1px solid #cfad4c;
 }
 
 .input_login2 input:valid ~ .input_label, .input_login2 input:focus ~ .input_label,
@@ -380,7 +380,7 @@
   border: none;
   color: #161616;
   /*bonito del boton del login*/
-  background-color: #dfc70e;
+  background-color: #cfad4c;
   cursor: pointer;
  
   
@@ -395,8 +395,8 @@
   
 .login-button:hover {
     background-color: #161616;
-    color: #dfc70e;
-    outline: 1px solid #dfc70e;
+    color: #cfad4c;
+    outline: 1px solid #cfad4c;
   }
   .login-button b{
     text-wrap: nowrap !important;
@@ -409,7 +409,7 @@
   column-gap: 200px;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(60deg,#cec02c 9%,#1d1d1d 9%, #1d1d1d 76%,  #cec02c 75%);
+  background: linear-gradient(60deg,#cfad4c 9%,#1d1d1d 9%, #1d1d1d 76%,  #cfad4c 75%);
   overflow: hidden;
   /*Fondo del login*/
   
@@ -455,7 +455,7 @@
   /*Letra grande de la imagen del login*/
 
   font-style: italic;
-  color: #e1c614;
+  color: #cfad4c;
 }
 @media(max-width:992px){
   .image_container{

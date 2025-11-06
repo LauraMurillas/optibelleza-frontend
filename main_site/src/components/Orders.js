@@ -412,21 +412,21 @@ const Orders = (props) => {
 
       <div className={`shopping_cart`}>
         <button onClick={() => { set_active_order_summary(true) }} className="order_summary_button" >ORDER SUMMARY</button>
-        <div className="main_heading_container"><i onClick={active_load_overlay_conatiner} className="fa-solid fa-arrow-left cart_back"></i><h3>Shopping <span>Cart</span></h3></div>
+        <div className="main_heading_container"><i onClick={active_load_overlay_conatiner} className="fa-solid fa-arrow-left cart_back"></i><h3>Carrito de <span>Compras</span></h3></div>
 
 
         <div className="shopping_content">
           <div className="heading_box">
-            <h4 className='shopping_content_heading'><span>Shopping</span> Cart</h4>
-            <h3>{props.cart_items.length} Items</h3>
+            <h4 className='shopping_content_heading'><span>Carrito de</span> Compras</h4>
+            <h3>{props.cart_items.length} Artículos</h3>
 
           </div>
           <div className={`no_item_in_cart ${cart_data.length === 0 ? "active_no_item_in_cart" : ""}`}>
 
             <i class="fa-solid fa-cart-shopping"></i>
-            <h4>NO ITEM IN CART</h4>
+            <h4>CARRITO VACÍO</h4>
 
-            <span onClick={active_product_container}>Add Item</span>
+            <span onClick={active_product_container}>Agregar Artículo</span>
           </div>
 
           <div className="table_order_container">
@@ -492,7 +492,7 @@ const Orders = (props) => {
                   </div>
                   <div className="mobile_shoes_content_container">
                     <h4 className='mobile_shoes_name'>{element.product_name}</h4>
-                    <h5 className='mobile_shoes_type'>{element.shoes_category} Running Shoes</h5>
+                    <h5 className='mobile_shoes_type'>Marco {element.shoes_category}</h5>
                     <h4 className='mobile_shoes_price'>${element.price}</h4>
 
                     <div className="mobile_shoes_bottom_container">

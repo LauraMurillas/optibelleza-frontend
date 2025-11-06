@@ -58,7 +58,7 @@
     
 }
 .about_main_heading span{
-    color: #bf2028;
+    color: #cfad4c;
 }
 
 
@@ -102,7 +102,7 @@
     width: 250px;
     height: 300px;;
     
-    background-color: #bf2028;
+    background-color: #cfad4c;
 
 }
 
@@ -114,7 +114,7 @@
     height: 300px;;
     background: transparent;
     box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.5),-8px -8px 15px rgba(0, 0, 0, 0.5) ;
-    border: 5px solid #bf2028;
+    border: 5px solid #cfad4c;
     
 }
 .about_shoes_container{
@@ -156,7 +156,7 @@
     padding-bottom: 10px;
 }
 .about1_heading span,.about2_heading span{
-    color: #bf2028;
+    color: #cfad4c;
 }
 .about1_main_para,.about2_main_para {
     display: flex;
@@ -201,7 +201,7 @@
     border: none;
     color: #252525;
     
-    background-color: #bf2028;
+    background-color: #cfad4c;
     cursor: pointer;
     padding-bottom: 3px;
     
@@ -216,10 +216,10 @@
     
         padding: 7px 7px;
         background-color: #161616;
-        color: #bf2028;
+        color: #cfad4c;
         border-radius: 5px;
         box-shadow: 0 0 5px black;
-        outline: 2px solid #bf2028;
+        outline: 2px solid #cfad4c;
         cursor: pointer;
     }
     .about_back{

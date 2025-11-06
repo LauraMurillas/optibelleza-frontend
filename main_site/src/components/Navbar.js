@@ -81,15 +81,15 @@ const Navbar = (props) => {
       
       </div>  
       <div className="nav_items">
-        <Link to="home_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(0)}} className={`fitem`}>Home<span className={`fitem_new ${props.fitem_active==0?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_about_page} className={`fitem `}>About<span className={`fitem_new ${props.fitem_active==1?"active_fitem":""}`}></span></Link>
-        <Link to="contact_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(2)}} className={`fitem`}>Contact<span className={`fitem_new ${props.fitem_active==2?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_all_products_page} className={`fitem `}>Shopping<span className={`fitem_new ${props.fitem_active==3?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_checkout_page} className={`fitem `}>Orders<span className={`fitem_new ${props.fitem_active==4?"active_fitem":""}`}></span></Link>
+        <Link to="home_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(0)}} className={`fitem`}>Inicio<span className={`fitem_new ${props.fitem_active==0?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_about_page} className={`fitem `}>Sobre Nosotros<span className={`fitem_new ${props.fitem_active==1?"active_fitem":""}`}></span></Link>
+        <Link to="contact_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(2)}} className={`fitem`}>Contacto<span className={`fitem_new ${props.fitem_active==2?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_all_products_page} className={`fitem `}>Tienda<span className={`fitem_new ${props.fitem_active==3?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_checkout_page} className={`fitem `}>Mis Pedidos<span className={`fitem_new ${props.fitem_active==4?"active_fitem":""}`}></span></Link>
       </div>
 
       <div className="profile_container">
-      <div className="profile_button" style={{border:props.nave_background===true?"2px solid #e5db10ff":""}} onClick={()=>props.set_profile(props.profile===false?true:false)}>
+      <div className="profile_button" style={{border:props.nave_background===true?"2px solid #cfad4c":""}} onClick={()=>props.set_profile(props.profile===false?true:false)}>
       <i class="fa-solid fa-user"></i>
       </div>   
       <div className="menu_mobile_button">
@@ -101,7 +101,7 @@ const Navbar = (props) => {
         <div className="item_count">{props.cart_items.length}</div>
       <i onClick={active_cart} style={{color:props.nave_background===true?"#f3f3f3":""}} className="fa-solid fa-cart-shopping cart-item"></i>
       </div>
-      <div className="logout_button" style={props.nave_background===true?{backgroundColor:"#e5db10ff",outline:"none"}:null} onClick={logout}>
+      <div className="logout_button" style={props.nave_background===true?{backgroundColor:"#cfad4c",outline:"none"}:null} onClick={logout}>
           <h1 style={{color:props.nave_background===true?"#161616":""}}>Cerrar sesión</h1>
           
           </div>

@@ -17,7 +17,7 @@
     color: #2a2929;
 } 
 .whyus_main_heading span{
-    color: #e6ee05;
+    color: #cfad4c;
 }
 .whyus_heading_container{
     display: flex;
@@ -74,7 +74,7 @@
     bottom: var(--spacer);
     right: var(--spacer);
     left: var(--spacer);
-    border: 3px solid #e6ee05;
+    border: 3px solid #cfad4c;
     
   
   
@@ -88,8 +88,8 @@
     height: 70px;
     margin-bottom: 15px;
     background-color: #2a2929;
-    border: 3px solid #e6ee05;;
-    color: #e6ee05;
+    border: 3px solid #cfad4c;
+    color: #cfad4c;
 }
 .whyus_box1 h4{
     font-size: 18px;

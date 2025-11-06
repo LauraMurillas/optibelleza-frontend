@@ -30,7 +30,7 @@
    
    
     
-    background-color: #bf2028;
+    background-color: #cfad4c;
     
   }
   
@@ -43,7 +43,7 @@
   .success_icon{
     padding: 5px 5px;
     border-radius: 50%;
-    background-color: #bf2028;
+    background-color: #cfad4c;
     color: #161616;
     font-size: 15px;
     font-weight:bolder;
@@ -63,7 +63,7 @@
     
   }
   .alert strong{
-    color: #bf2028;
+    color: #cfad4c;
   }
   .alert-success {
     background-color: #ededed;
@@ -98,6 +98,6 @@
   }
   .alert-white.alert-success .icon,.alert-white.alert-success .icon:after {
     
-    background: #bf2028;
+    background: #cfad4c;
   }
   

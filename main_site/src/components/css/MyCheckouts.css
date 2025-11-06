@@ -76,7 +76,7 @@
 .exclusive_right,.exclusive_left{
     font-size: 37px;
     font-weight: 900;
-    color: #bf2028;
+    color: #cfad4c;
 }
 .exclusive_collection_main_content{
     box-sizing: border-box;
@@ -99,12 +99,12 @@
     height: 25px;
     width: 180px;
     border-radius: 20px;
-    background-color: #bf2028;
+    background-color: #cfad4c;
     color: #161616;
     font-weight: 800;
     box-shadow: 3px 3px 10px 6px rgba(16, 16, 16, 0.34);
 
-    border: 2px solid #bf2028;
+    border: 2px solid #cfad4c;
 }
 .exclusive_card_outer_container{
     position: relative;
@@ -241,7 +241,7 @@
   text-align: center;
   
   border: none;
-  color: #bf2028;
+  color: #cfad4c;
   font-weight: 700;
   
   background-color: #161616;
@@ -252,7 +252,7 @@
   
   box-shadow: 3px 3px 5px rgb(76, 76, 76);
   
-  border: 2px solid #bf2028;
+  border: 2px solid #cfad4c;
   transform: translateZ(25px);
 
 }
@@ -278,7 +278,7 @@
 .exclusive_circle{
     position: absolute;
     display: block;
-    background-color: #bf2028;
+    background-color: #cfad4c;
     top:10%;
     left: 17%;
     height: 120px;
@@ -326,7 +326,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 3px solid #bf2028;
+    border-bottom: 3px solid #cfad4c;
     width: 100%;
     height: 43px;
     margin-top: 5px;
@@ -339,7 +339,7 @@
 }
 
 .exclusive_collection_heading_container h5 span{
-    color: #bf2028;
+    color: #cfad4c;
 }
 .outer_checkout_container{
    
@@ -353,7 +353,7 @@
     color: #222222;
 }
 .checkout_main_heading span{
-    color: #bf2028;
+    color: #cfad4c;
 }
 .checkout_heading_container{
     display: flex;
@@ -376,9 +376,9 @@
     width: 78px;
     border-radius: 20px;
     background-color: #161616;
-    color: #bf2028;
+    color: #cfad4c;
     font-weight: 700;
-    border: 2px solid #bf2028;
+    border: 2px solid #cfad4c;
 }
 .checkout_back{
     
@@ -387,10 +387,10 @@
     left:10px;
     padding: 7px 7px;
     background-color: #161616;
-    color: #bf2028;
+    color: #cfad4c;
     border-radius: 5px;
     box-shadow: 0 0 5px black;
-    outline: 2px solid #bf2028;
+    outline: 2px solid #cfad4c;
     cursor: pointer;
 }
 .main_checkout_content_conatiner{
@@ -445,7 +445,7 @@
 
 .checkout_drop_down_button i{
     font-size: 29px;
-    color: #bf2028;
+    color: #cfad4c;
     transition: 0.4s ease-in-out;
 }
 .checkout_drop_down_button_rotate{
@@ -508,7 +508,7 @@
 .delivery_date_box i{
     margin-top: 2px;
     font-size: 10px;
-    color: #bf2028;
+    color: #cfad4c;
     
 }
 .checkout_shoes_name{
@@ -592,7 +592,7 @@
     transform: translate(-50%,-50%);
     height: 3px;
     width: 100%;
-    background-color: #bf2028;
+    background-color: #cfad4c;
 }
 .order_status_dot_container span{
     display: grid;
@@ -614,7 +614,7 @@
     color: #5a5a5a !important;
 }
 .active_status .order_delivered{
-    background-color: #bf2028!important;
+    background-color: #cfad4c!important;
 
 }
 .active_status .order_delivered i{
@@ -627,11 +627,11 @@
     font-size: 14px;
 }
 .active_status  span{
-    border:2px solid #bf2028 ;
+    border:2px solid #cfad4c ;
     background-color: #161616;
 }
 .active_status span i{
-    color: #bf2028;
+    color: #cfad4c;
 
 }
 .order_status_dot_container{
@@ -741,7 +741,7 @@
     text-align: center;
     text-wrap: nowrap;
     border: none;
-  color: #bf2028;
+  color: #cfad4c;
    font-size: 12px;
   background-color: #161616;
   cursor: pointer;
@@ -826,7 +826,7 @@
         font-weight: 900;
     }
     .exclusive_collection_main_content_heading span{
-        color: #bf2028;
+        color: #cfad4c;
     }
     .exclusive_collection_main_content{
         
@@ -848,7 +848,7 @@
         
     }
     .mobile_checkout_main_heading span{
-        color: #bf2028;
+        color: #cfad4c;
     }
     .mobile_checkout_heading_container{
         display: flex;

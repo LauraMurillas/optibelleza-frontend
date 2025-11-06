@@ -13,10 +13,11 @@ const AllProducts = (props) => {
   const [checkAll, setCheckAll] = useState(true);
   const [checkAll1, setCheckAll1] = useState(true);
   const [categories, setCategories] = useState([
-    { name: "All", checked: true }, // all
-    { name: "Elegantes", checked: true }, //sneakers
-    { name: "Casuales", checked: true },  // sports
-    { name: "Otros", checked: true } // casual
+    { name: "Todos", checked: true },
+    { name: "Clásico", checked: true },
+    { name: "Moderno", checked: true },
+    { name: "Deportivo", checked: true },
+    { name: "Elegante", checked: true }
   ]);
   const [search_product, set_search_product] = useState("")
   const [type_filter, set_type_filter] = useState("All")
@@ -290,24 +291,30 @@ const AllProducts = (props) => {
                   <span></span>
                   <input type="checkbox" checked={categories[1].checked}
                     onChange={() => handleCategoryChange(categories[1].name)} />
-                  Sneakers
+                  Clásico
                 </label>
                 <label className='catagorie_check_box'>
                   <span></span>
                   <input type="checkbox" checked={categories[2].checked}
                     onChange={() => handleCategoryChange(categories[2].name)} />
-                  Sports
+                  Moderno
                 </label>
                 <label className='catagorie_check_box'>
                   <span></span>
                   <input type="checkbox" checked={categories[3].checked}
                     onChange={() => handleCategoryChange(categories[3].name)} />
-                  Casual
+                  Deportivo
+                </label>
+                <label className='catagorie_check_box'>
+                  <span></span>
+                  <input type="checkbox" checked={categories[4].checked}
+                    onChange={() => handleCategoryChange(categories[4].name)} />
+                  Elegante
                 </label>
               </div>
             </div>
             <div className="filter_criteria4">
-              <h3 className='filter_criteria4_heading'>Estilo</h3>
+              <h3 className='filter_criteria4_heading'>Material</h3>
 
               <div className="catagorie_container">
                 
@@ -315,13 +322,13 @@ const AllProducts = (props) => {
                   <span></span>
                   <input type="checkbox" checked={categories1[0].checked}
                     onChange={() => handleCategoryChange1(categories1[0].name)} />
-                  Formales
+                  Metal
                 </label>
                 <label className='catagorie_check_box'>
                   <span></span>
                   <input type="checkbox" checked={categories1[1].checked}
                     onChange={() => handleCategoryChange1(categories1[1].name)} />
-                  Juveniles
+                  Acetato
                 </label>
 
               </div>
@@ -333,7 +340,7 @@ const AllProducts = (props) => {
 
           <div className="all_products_heading_container">
 
-            <h5 className="product_listing_main_heading"><span>{type_filter}</span> Shoes</h5>
+            <h5 className="product_listing_main_heading">Todos los <span>Marcos</span></h5>
 
             <div className="all_products_cart_item_content">
               <div className="all_products_item_count">{props.cart_items.length}</div>
@@ -419,7 +426,7 @@ const AllProducts = (props) => {
                   </div>
                   <div className="mobile_shoes_content_container">
                     <h4 className='mobile_shoes_name'>{element.name}</h4>
-                    <h5 className='mobile_shoes_type'>{element.shoes_category} Running Shoes</h5>
+                    <h5 className='mobile_shoes_type'>Marco {element.shoes_category}</h5>
                     <div className="stars_container1">
                       <i className="fa-solid fa-star"></i>
                       <i className="fa-solid fa-star"></i>
