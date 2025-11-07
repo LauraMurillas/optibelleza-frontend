@@ -76,7 +76,7 @@ const MyCheckouts = (props) => {
         };
 
 
-  const response = await axios.get("http://127.0.0.1:8000/current_user_all_order", { headers });
+  const response = await axios.get("http://localhost:8000/docs/api/current_user_all_order", { headers });
 
         console.log(response)
         set_checkout_data(response.data)

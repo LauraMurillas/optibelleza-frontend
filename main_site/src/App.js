@@ -19,8 +19,11 @@ import Profile1 from './components/Profile1';
 import ProductDetail from './components/ProductDetail';
 const { Country, State, City } = require('country-state-city');
 
+export const API_BASE_URL = "http://localhost:8000";
 
 function App() {
+
+  
   const [refresh_checkout,set_refresh_checkout]=useState(false)
   const [token, settoken] = useState(localStorage.getItem('user_token') !== null ? JSON.parse(localStorage.getItem("user_token")) : "")
   const [profile,set_profile]=useState(false)
@@ -129,7 +132,7 @@ function App() {
           product_quantity: quantity
         };
         set_active_loader(true)
-  const response = await axios.post(`http://127.0.0.1:8000/add_item_cart`,cart_data, { headers });
+  const response = await axios.post(`${API_BASE_URL}/products/${id}`,cart_data, { headers });
 
         set_active_loader(false)
         if (response.data.status!=="out of stock"){
@@ -296,8 +299,8 @@ function App() {
            <ProductDetail active_size={active_size} set_active_size={set_active_size} productdetail_quantity={productdetail_quantity} set_productdetail_quantity={set_productdetail_quantity} set_show_alert={set_show_alert} showalert={showalert} set_alert_message={set_alert_message} get_particular_shoes={get_particular_shoes} particular_shoes_category={particular_shoes_category} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} add_to_cart={add_to_cart} particular_shoes={particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page}/>
            <MyCheckouts set_fitem_active={set_fitem_active} refresh_checkout={refresh_checkout} set_active_loader={set_active_loader} add_to_cart={add_to_cart} set_hitflag={set_hitflag}  hitflag={hitflag} set_load_overlay_active={set_load_overlay_active} active_orders_page_show={active_orders_page_show} set_active_orders_page_show={set_active_orders_page_show} token={token} settoken={settoken}/>
            <AllProducts set_active_cart_page_show={set_active_cart_page_show} cart_items={cart_items} set_fitem_active={set_fitem_active} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} get_particular_shoes={get_particular_shoes}  set_hitflag={set_hitflag}  hitflag={hitflag}set_load_overlay_active={set_load_overlay_active} active_all_product_page_show={active_all_product_page_show} set_active_all_product_page_show={set_active_all_product_page_show} add_to_cart={add_to_cart} token={token} settoken={settoken}/>
-           <FeaturedProducts refresh_checkout={refresh_checkout}   get_particular_shoes={get_particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={'http://127.0.0.1:8000/featured_shoes'} heading1={"TOP VENTAS"}  heading2={"COLECCIONES"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
-           <FeaturedProducts refresh_checkout={refresh_checkout}  get_particular_shoes={get_particular_shoes}  set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={"http://127.0.0.1:8000/new_shoes"} heading1={"NUEVO"}  heading2={"NUEVA COLECCIÓN"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
+           <FeaturedProducts refresh_checkout={refresh_checkout}   get_particular_shoes={get_particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/featured_shoes`} heading1={"TOP VENTAS"}  heading2={"COLECCIONES"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
+           <FeaturedProducts refresh_checkout={refresh_checkout}  get_particular_shoes={get_particular_shoes}  set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/new_shoes`} heading1={"NUEVO"}  heading2={"NUEVA COLECCIÓN"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
            <Discount/>
            <Contact/>
           

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import logo from '../logo.png'
-
-
+import { API_BASE_URL } from '../App';
 import "../components/css/UserLogin.css"
+
+
 const UserLogin = (props) => {
   const [user_password, set_user_password] = useState("")
   const [user_email, set_user_email] = useState("")
@@ -53,7 +54,7 @@ const UserLogin = (props) => {
       
       try {
         props.set_active_loader(true)
-  const response = await axios.post('http://127.0.0.1:8000/users', signup_data );
+  const response = await axios.post('http://localhost:8000/docs/api/users/me', signup_data );
         props.set_active_loader(false)
         set_user_signup_email("")
     set_create_password("")
@@ -99,10 +100,36 @@ const UserLogin = (props) => {
       email: user_email,
       password: user_password
     };
+
+    try {
+      props.set_active_loader(true);
+      const response = await axios.post(`${API_BASE_URL}/login_user`, {
+        email: user_email,
+        password: user_password
+      });
+      
+      props.set_active_loader(false);
+      
+      if (!response.data.status) {
+        set_login_error_message("* Credenciales inválidas *");
+      } else {
+        localStorage.setItem("user_token", JSON.stringify(response.data.token));
+        props.settoken(response.data.token);
+      }
+
+      setLoginresponse(response.data.status);
+      
+    } catch (error) {
+      props.set_active_loader(false);
+      console.error('Error en login:', error);
+      set_login_error_message("* Error de conexión *");
+    }
+
     
+    /*
     try {
       props.set_active_loader(true)
-  const response = await axios.post('http://127.0.0.1:8000/login_user', postData);
+  const response = await axios.post(`${API_BASE_URL}/login_user`, postData);
       props.set_active_loader(false)
       if (!response.data.status) {
         
@@ -117,9 +144,9 @@ const UserLogin = (props) => {
     } catch (error) {
       console.error('Error making POST request:', error);
     }
-  }
+      */
 
-
+    }
   }
 
 

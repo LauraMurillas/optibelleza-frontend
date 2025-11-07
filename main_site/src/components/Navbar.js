@@ -55,7 +55,7 @@ const Navbar = (props) => {
             Authorization: `Bearer ${props.token}`,
           };
           props.set_active_loader(true)
-          const response =await axios.get('http://127.0.0.1:8000/logout_user',{headers});
+          const response =await axios.get('http://localhost:8000/docs/api/logout_user',{headers});
           props.set_active_loader(false)
         
      

@@ -4,6 +4,7 @@ import "../components/css/AllProducts.css"
 import { useRef, useState, useEffect } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 
+
 const AllProducts = (props) => {
   const [search_shoes, set_search_shoes] = useState("")
   const tiltRefs = useRef([]);
@@ -35,7 +36,8 @@ const AllProducts = (props) => {
         const headers = {
           Authorization: `Bearer ${props.token}`,
         };
-  const response = await axios.get('http://127.0.0.1:8000/shoes', { headers });
+  /* extrae los productos*/
+  const response = await axios.get('http://localhost:8000/docs/api/products', { headers });
 
         console.log(response)
         props.set_all_shoes_data(response.data)

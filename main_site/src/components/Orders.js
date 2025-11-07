@@ -78,7 +78,7 @@ const Orders = (props) => {
         });
       });
 
-  const response = await axios.put(`http://127.0.0.1:8000/set_item_size`, item_data, { headers });
+  const response = await axios.put(`http://localhost:8000/docs/set_item_size`, item_data, { headers });
 
 
 
@@ -100,10 +100,8 @@ const Orders = (props) => {
           };
           props.set_cart_items(props.cart_items.filter((element) => element.product_name !== item_name))
           props.set_shoes_name(props.shoes_names.filter((element) => element !== item_name))
-       
-          const response = await axios.get(`http://127.0.0.1:8000/delete_cart_item/${item_name}`, { headers });
-         
-        
+
+          const response = await axios.get(`http://localhost:8000/docs/api/delete_cart_item/${item_name}`, { headers });
 
 
 
@@ -127,10 +125,8 @@ const Orders = (props) => {
           });
         });
 
-       
-  const response = await axios.put(`http://127.0.0.1:8000/decrease_cart_item`, item_data, { headers });
-        
-      
+
+  const response = await axios.put(`http://localhost:8000/docs/api/decrease_cart_item`, item_data, { headers });
 
 
 
@@ -148,10 +144,8 @@ const Orders = (props) => {
       };
       props.set_cart_items(props.cart_items.filter((element) => element.product_name !== item_name))
       props.set_shoes_name(props.shoes_names.filter((element) => element !== item_name))
-      
-  const response = await axios.get(`http://127.0.0.1:8000/delete_cart_item/${item_name}`, { headers });
-      
-      
+
+  const response = await axios.get(`http://localhost:8000/docs/api/delete_cart_item/${item_name}`, { headers });
 
 
 
@@ -171,7 +165,7 @@ const Orders = (props) => {
 
       }
       props.set_active_loader(true)
-  const response = await axios.put(`http://127.0.0.1:8000/increase_cart_item`, item_data, { headers });
+  const response = await axios.put(`http://localhost:8000/docs/api/increase_cart_item`, item_data, { headers });
       props.set_active_loader(false)
       if (response.data.status=="ok"){
       props.set_cart_items((prevData) => {
@@ -211,7 +205,7 @@ const Orders = (props) => {
         user_address: `${street}, ${city}, ${state}, ${country}`
       }
       props.set_active_loader(true)
-  const response = axios.post("http://127.0.0.1:8000/add_address", address_data, { headers })
+  const response = axios.post("http://localhost:8000/docs/api/add_address", address_data, { headers })
       props.set_active_loader(false)
       props.set_user_adress(`${street}, ${city}, ${state}, ${country}`)
       set_active_edit_address(false)
@@ -229,7 +223,7 @@ const Orders = (props) => {
         const headers = {
           Authorization: `Bearer ${props.token}`,
         };
-  const response = await axios.get('http://127.0.0.1:8000/all_cart_items', { headers });
+  const response = await axios.get('http://localhost:8000/docs/api/all_cart_items', { headers });
         ;
 
         props.set_cart_items(response.data);
@@ -366,7 +360,7 @@ const Orders = (props) => {
 
       }
       props.set_active_loader(true)
-  const response = await axios.post("http://127.0.0.1:8000/add_order", checkout_data, { headers })
+  const response = await axios.post("http://localhost:8000/docs/api/add_order", checkout_data, { headers })
       set_active_place_order(false)
       props.set_active_loader(false)
       set_active_order_sucess(true)

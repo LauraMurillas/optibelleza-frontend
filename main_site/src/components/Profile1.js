@@ -73,7 +73,7 @@ const Profile1 = (props) => {
                 const headers = {
                     Authorization: `Bearer ${props.token}`,
                 };
-                const response = await axios.get('http://127.0.0.1:8000/current_user_info', { headers });
+                const response = await axios.get('http://localhost:8000/docs/api/users/me', { headers });
                 props.set_user_name(response.data.user_name)
                 props.set_user_email(response.data.email)
                 props.set_user_adress(response.data.user_address)
@@ -120,7 +120,7 @@ const Profile1 = (props) => {
             user_address: `${street}, ${city}, ${state}, ${country}`
           }
           props.set_active_loader(true)
-          const response = await axios.post("http://127.0.0.1:8000/add_address", address_data, { headers })
+          const response = await axios.post("http://localhost:8000/docs/api/add_address", address_data, { headers })
           props.set_active_loader(false)
           set_open_edit_address_container(false); 
           props.set_user_adress(`${street}, ${city}, ${state}, ${country}`)
@@ -145,7 +145,7 @@ const Profile1 = (props) => {
         user_name:(name.trim().split(/\s+/)).join(" ")
       }
       props.set_active_loader(true)
-    const response = await axios.post("http://127.0.0.1:8000/add_name", name_data, { headers })
+    const response = await axios.post("http://localhost:8000/docs/api/add_name", name_data, { headers })
       props.set_active_loader(false)
       set_open_edit_address_container(false); 
       set_open_edit_name_input(false)
@@ -179,7 +179,7 @@ const save_all_number_changes=async (number)=>{
         user_phone_no:number.replace(/\s+/g, '')
       }
       props.set_active_loader(true)
-    const response = await axios.post("http://127.0.0.1:8000/add_number", name_data, { headers })
+    const response = await axios.post("http://localhost:8000/docs/api/add_number", name_data, { headers })
       props.set_active_loader(false)
       set_open_edit_address_container(false); 
       set_open_edit_phone_input(false)
