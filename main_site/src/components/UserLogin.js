@@ -154,16 +154,15 @@ const UserLogin = (props) => {
   return (
     <div className="login_section">
       
-      <img className="logo_image_login" src={logo} alt="Logo" />
-
-      <div className="image_heading">
-          <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
+      <div className="logo_and_title_container">
+        <img className="logo_image_login" src="/logo.png" alt="Logo" />
+        <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
       </div>
       
       <div className="image_container">
-        <img className="image_login" src="/exclusive.jpg"></img>
+        <img className="image_login" src="/exclusive.jpg" alt="Exclusive" />
       </div>
-      
+
       <div className="login_card">
         
         <div className={`login_container ${signup === false ? "" : "login_container_rotate"}`}>

@@ -270,55 +270,75 @@ function App() {
     setTimeout(()=>{
       set_load_overlay_active(false)
     },1600)}
- 
+
   return (
     <div className={`main_website_container`} id="main">
-      
-        <Alert alert_message={alert_message} showalert={showalert} set_show_alert={set_show_alert}/>
-        <div className={`loader_container ${active_loader===true?"show_loader":""}`}>
-          <div className="loader_inner_container">
-        <span className="loader"></span>
+      <Alert alert_message={alert_message} showalert={showalert} set_show_alert={set_show_alert}/>
+      <div className={`loader_container ${active_loader===true?"show_loader":""}`}>
+        <div className="loader_inner_container">
+          <span className="loader"></span>
         </div>
       </div>
-        <div className={`login_page ${token!==""?"hide_login":""}`}>
-      <UserLogin set_active_loader={set_active_loader} showalert={showalert} set_alert_message={set_alert_message} set_show_alert={set_show_alert}token={token} settoken={settoken}/>
+
+      {/* ORDEN DE SECCIONES: Home -> Login -> Featured -> Contact */}
+
+      {/* 1. LOGIN SECTION - Como overlay si no hay token */}
+      {token === "" && (
+        <div className={`login_page_section`}>
+          <UserLogin set_active_loader={set_active_loader} showalert={showalert} set_alert_message={set_alert_message} set_show_alert={set_show_alert} token={token} settoken={settoken}/>
+        </div>
+      )}
+
+      
+      
+      {/* 2. HOME SECTION */}
+      <div id="home_section">
+        <Navbar set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} fitem_active={fitem_active} set_fitem_active={set_fitem_active} activeSection={activeSection} cart_items={cart_items} set_active_loader={set_active_loader}  set_open_mobile_menu={set_open_mobile_menu} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active}  nave_background={nave_background}  set_nave_background={set_nave_background} token={token} settoken={settoken} shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_profile={set_profile} profile={profile}/>
+        <Cart set_load_overlay_active={set_load_overlay_active} set_active_loader={set_active_loader}  set_hitflag={set_hitflag}  hitflag={hitflag} set_profile={set_profile} profile={profile} token={token} settoken={settoken} />
+        <About set_fitem_active={set_fitem_active} set_load_overlay_active={set_load_overlay_active} active_about_page_show={active_about_page_show} set_active_about_page_show={set_active_about_page_show} />
+        <WhyUS/>
       </div>
-      
-         {token &&<> 
-         <Profile1 set_profile={set_profile} profile={profile} set_alert_message={set_alert_message} set_show_alert={set_show_alert} set_active_loader={set_active_loader} city_options={city_options} set_city_options={set_city_options} states_options={states_options} set_states_options={set_states_options} country_options={country_options} set_country_options={set_country_options} Selected_street={Selected_street} setSelected_street={setSelected_street} selected_city={selected_city} setSelected_city={setSelected_city} selected_state={selected_state} setSelected_state={setSelected_state} selected_country={selected_country} setSelected_country={setSelected_country} get_user_phone_number={get_user_phone_number} set_user_phone_number={set_user_phone_number} get_user_name={get_user_name} set_user_name={set_user_name} get_user_email={get_user_email} set_user_email={set_user_email} user_address={user_address}  set_user_adress={set_user_adress} token={token} settoken={settoken} />
-         <div className={`User_page ${profile===true?"disable_main_webite_pointer":""}`}>
-         
-          <MobileMenu  set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active} open_mobile_menu={open_mobile_menu} set_open_mobile_menu={set_open_mobile_menu}/>
 
-          
-            <div className={`load_overlay ${load_overlay_active===true?"active_load_overlay":""}`}></div>
-           <Navbar  set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show}fitem_active={fitem_active} set_fitem_active={set_fitem_active} activeSection={activeSection} cart_items={cart_items} set_active_loader={set_active_loader}  set_open_mobile_menu={set_open_mobile_menu} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active}  nave_background={nave_background}  set_nave_background={set_nave_background}token={token} settoken={settoken} shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_profile={set_profile} profile={profile}/>
-           <Cart set_load_overlay_active={set_load_overlay_active} set_active_loader={set_active_loader}  set_hitflag={set_hitflag}  hitflag={hitflag} set_profile={set_profile} profile={profile} token={token} settoken={settoken} />
-           <About set_fitem_active={set_fitem_active} set_load_overlay_active={set_load_overlay_active} active_about_page_show={active_about_page_show} set_active_about_page_show={set_active_about_page_show} />
-           <WhyUS/>
-           <ProductDetail active_size={active_size} set_active_size={set_active_size} productdetail_quantity={productdetail_quantity} set_productdetail_quantity={set_productdetail_quantity} set_show_alert={set_show_alert} showalert={showalert} set_alert_message={set_alert_message} get_particular_shoes={get_particular_shoes} particular_shoes_category={particular_shoes_category} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} add_to_cart={add_to_cart} particular_shoes={particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page}/>
-           <MyCheckouts set_fitem_active={set_fitem_active} refresh_checkout={refresh_checkout} set_active_loader={set_active_loader} add_to_cart={add_to_cart} set_hitflag={set_hitflag}  hitflag={hitflag} set_load_overlay_active={set_load_overlay_active} active_orders_page_show={active_orders_page_show} set_active_orders_page_show={set_active_orders_page_show} token={token} settoken={settoken}/>
-           <AllProducts set_active_cart_page_show={set_active_cart_page_show} cart_items={cart_items} set_fitem_active={set_fitem_active} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} get_particular_shoes={get_particular_shoes}  set_hitflag={set_hitflag}  hitflag={hitflag}set_load_overlay_active={set_load_overlay_active} active_all_product_page_show={active_all_product_page_show} set_active_all_product_page_show={set_active_all_product_page_show} add_to_cart={add_to_cart} token={token} settoken={settoken}/>
-           <FeaturedProducts refresh_checkout={refresh_checkout}   get_particular_shoes={get_particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/featured_shoes`} heading1={"TOP VENTAS"}  heading2={"COLECCIONES"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
-           <FeaturedProducts refresh_checkout={refresh_checkout}  get_particular_shoes={get_particular_shoes}  set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/new_shoes`} heading1={"NUEVO"}  heading2={"NUEVA COLECCIÓN"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
-           <Discount/>
-           <Contact/>
-          
-        
-          
-          <Orders set_fitem_active={set_fitem_active} hitflag={hitflag} refresh_checkout={refresh_checkout} set_refresh_checkout={set_refresh_checkout} set_show_alert={set_show_alert} showalert={showalert} set_alert_message={set_alert_message}set_active_loader={set_active_loader} set_user_adress={set_user_adress} user_address={user_address} active_cart_page_show={active_cart_page_show} set_active_cart_page_show={set_active_cart_page_show} set_load_overlay_active={set_load_overlay_active}  shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_cart_items={set_cart_items} cart_items={cart_items} token={token} />
 
-          
-          </div>
-          </>
-}
+      {/* 3. FEATURED SECTION */}
+      <div id="featured_section">
+        <FeaturedProducts refresh_checkout={refresh_checkout} get_particular_shoes={get_particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/featured_shoes`} heading1={"TOP VENTAS"}  heading2={"COLECCIONES"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
+        <FeaturedProducts refresh_checkout={refresh_checkout}  get_particular_shoes={get_particular_shoes}  set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/new_shoes`} heading1={"NUEVO"}  heading2={"NUEVA COLECCIÓN"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
+        <Discount/>
+      </div>
 
-         
+      {/* 5. ALL PRODUCTS */}
+      <AllProducts set_active_cart_page_show={set_active_cart_page_show} cart_items={cart_items} set_fitem_active={set_fitem_active} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} get_particular_shoes={get_particular_shoes}  set_hitflag={set_hitflag}  hitflag={hitflag} set_load_overlay_active={set_load_overlay_active} active_all_product_page_show={active_all_product_page_show} set_active_all_product_page_show={set_active_all_product_page_show} add_to_cart={add_to_cart} token={token} settoken={settoken}/>
+
+
+      {/* 4. CONTACT SECTION */}
+      <div id="contact_section">
+        <Contact/>
+      </div>
+
+      {/* CONTENIDO PRINCIPAL (Navbar, Cart, etc.) - Solo cuando hay token */}
+      {token !== "" && (
+        <div className={`User_page ${profile===true?"disable_main_webite_pointer":""}`}>
+          <MobileMenu set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active} open_mobile_menu={open_mobile_menu} set_open_mobile_menu={set_open_mobile_menu}/>
           
-        
-      
-    </div>
-  );
+          <div className={`load_overlay ${load_overlay_active===true?"active_load_overlay":""}`}></div>
+          
+          <Navbar set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} fitem_active={fitem_active} set_fitem_active={set_fitem_active} activeSection={activeSection} cart_items={cart_items} set_active_loader={set_active_loader}  set_open_mobile_menu={set_open_mobile_menu} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active}  nave_background={nave_background}  set_nave_background={set_nave_background} token={token} settoken={settoken} shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_profile={set_profile} profile={profile}/>
+          
+          
+          <Profile1 set_profile={set_profile} profile={profile} set_alert_message={set_alert_message} set_show_alert={set_show_alert} set_active_loader={set_active_loader} city_options={city_options} set_city_options={set_city_options} states_options={states_options} set_states_options={set_states_options} country_options={country_options} set_country_options={set_country_options} Selected_street={Selected_street} setSelected_street={setSelected_street} selected_city={selected_city} setSelected_city={setSelected_city} selected_state={selected_state} setSelected_state={setSelected_state} selected_country={selected_country} setSelected_country={setSelected_country} get_user_phone_number={get_user_phone_number} set_user_phone_number={set_user_phone_number} get_user_name={get_user_name} set_user_name={set_user_name} get_user_email={get_user_email} set_user_email={set_user_email} user_address={user_address}  set_user_adress={set_user_adress} token={token} settoken={settoken} />
+
+          <AllProducts set_active_cart_page_show={set_active_cart_page_show} cart_items={cart_items} set_fitem_active={set_fitem_active} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} get_particular_shoes={get_particular_shoes}  set_hitflag={set_hitflag}  hitflag={hitflag} set_load_overlay_active={set_load_overlay_active} active_all_product_page_show={active_all_product_page_show} set_active_all_product_page_show={set_active_all_product_page_show} add_to_cart={add_to_cart} token={token} settoken={settoken}/>
+          
+          <ProductDetail active_size={active_size} set_active_size={set_active_size} productdetail_quantity={productdetail_quantity} set_productdetail_quantity={set_productdetail_quantity} set_show_alert={set_show_alert} showalert={showalert} set_alert_message={set_alert_message} get_particular_shoes={get_particular_shoes} particular_shoes_category={particular_shoes_category} all_shoes_data={all_shoes_data} set_all_shoes_data={set_all_shoes_data} add_to_cart={add_to_cart} particular_shoes={particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page}/>
+          
+          <MyCheckouts set_fitem_active={set_fitem_active} refresh_checkout={refresh_checkout} set_active_loader={set_active_loader} add_to_cart={add_to_cart} set_hitflag={set_hitflag}  hitflag={hitflag} set_load_overlay_active={set_load_overlay_active} active_orders_page_show={active_orders_page_show} set_active_orders_page_show={set_active_orders_page_show} token={token} settoken={settoken}/>
+          
+          <Orders set_fitem_active={set_fitem_active} hitflag={hitflag} refresh_checkout={refresh_checkout} set_refresh_checkout={set_refresh_checkout} set_show_alert={set_show_alert} showalert={showalert} set_alert_message={set_alert_message} set_active_loader={set_active_loader} set_user_adress={set_user_adress} user_address={user_address} active_cart_page_show={active_cart_page_show} set_active_cart_page_show={set_active_cart_page_show} set_load_overlay_active={set_load_overlay_active}  shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_cart_items={set_cart_items} cart_items={cart_items} token={token} />
+        </div>
+      )}
+    </div>  
+  )
 }
 
 export default App;
