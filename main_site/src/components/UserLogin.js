@@ -154,10 +154,10 @@ const UserLogin = (props) => {
   return (
     <div className="login_section">
       
-      <div className="logo_and_title_container">
+      {/*<div className="logo_and_title_container">
         <img className="logo_image_login" src="/logo.png" alt="Logo" />
         <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
-      </div>
+      </div>*/}
       
       <div className="image_container">
         <img className="image_login" src="/exclusive.jpg" alt="Exclusive" />

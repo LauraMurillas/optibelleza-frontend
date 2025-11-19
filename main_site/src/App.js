@@ -282,6 +282,15 @@ function App() {
 
       {/* ORDEN DE SECCIONES: Home -> Login -> Featured -> Contact */}
 
+      
+      
+      {/* 2. HOME SECTION */}
+      <div id="home_section">
+        <Navbar set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} fitem_active={fitem_active} set_fitem_active={set_fitem_active} activeSection={activeSection} cart_items={cart_items} set_active_loader={set_active_loader}  set_open_mobile_menu={set_open_mobile_menu} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active}  nave_background={nave_background}  set_nave_background={set_nave_background} token={token} settoken={settoken} shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_profile={set_profile} profile={profile}/>
+        <Cart set_load_overlay_active={set_load_overlay_active} set_active_loader={set_active_loader}  set_hitflag={set_hitflag}  hitflag={hitflag} set_profile={set_profile} profile={profile} token={token} settoken={settoken} />
+      </div>
+
+
       {/* 1. LOGIN SECTION - Como overlay si no hay token */}
       {token === "" && (
         <div className={`login_page_section`}>
@@ -289,17 +298,15 @@ function App() {
         </div>
       )}
 
-      
-      
+
       {/* 2. HOME SECTION */}
       <div id="home_section">
         <Navbar set_active_cart_page_show={set_active_cart_page_show} set_active_about_page_show={set_active_about_page_show} set_active_all_product_page_show={set_active_all_product_page_show} set_active_orders_page_show={set_active_orders_page_show} fitem_active={fitem_active} set_fitem_active={set_fitem_active} activeSection={activeSection} cart_items={cart_items} set_active_loader={set_active_loader}  set_open_mobile_menu={set_open_mobile_menu} load_overlay_active={load_overlay_active} set_load_overlay_active={set_load_overlay_active}  nave_background={nave_background}  set_nave_background={set_nave_background} token={token} settoken={settoken} shoes_names={shoes_names} set_shoes_name={set_shoes_names} set_profile={set_profile} profile={profile}/>
-        <Cart set_load_overlay_active={set_load_overlay_active} set_active_loader={set_active_loader}  set_hitflag={set_hitflag}  hitflag={hitflag} set_profile={set_profile} profile={profile} token={token} settoken={settoken} />
         <About set_fitem_active={set_fitem_active} set_load_overlay_active={set_load_overlay_active} active_about_page_show={active_about_page_show} set_active_about_page_show={set_active_about_page_show} />
         <WhyUS/>
       </div>
 
-
+  
       {/* 3. FEATURED SECTION */}
       <div id="featured_section">
         <FeaturedProducts refresh_checkout={refresh_checkout} get_particular_shoes={get_particular_shoes} set_load_overlay_active={set_load_overlay_active} open_productdetail_page={open_productdetail_page} set_productdetail_page={set_productdetail_page} set_hitflag={set_hitflag}  hitflag={hitflag} set_active_loader={set_active_loader} add_to_cart={add_to_cart} shoes_api={`${API_BASE_URL}/featured_shoes`} heading1={"TOP VENTAS"}  heading2={"COLECCIONES"} set_alert_message={set_alert_message} set_show_alert={set_show_alert} shoes_names={shoes_names} set_shoes_name={set_shoes_names} cart_items={cart_items} set_cart_items={set_cart_items} token={token}/>
