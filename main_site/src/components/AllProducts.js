@@ -389,7 +389,7 @@ const AllProducts = (props) => {
 
                   </div>
                   <div className="card_button_container">
-                      <button onClick={() => props.add_to_cart(element.id, element.name,9,1)} className='card_button1'>Add To Cart <span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                      <button onClick={() => props.add_to_cart(element.id, element.name,9,1)} className='card_button1'>Añadir al carrito <span><i class="fa-solid fa-cart-shopping"></i></span></button>
 
                     </div>
 
