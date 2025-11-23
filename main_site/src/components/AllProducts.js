@@ -4,12 +4,13 @@ import "../components/css/AllProducts.css"
 import { useRef, useState, useEffect } from 'react';
 import VanillaTilt from 'vanilla-tilt';
 
+
 const AllProducts = (props) => {
   const [search_shoes, set_search_shoes] = useState("")
   const tiltRefs = useRef([]);
 
   const [show_filter, set_show_filter] = useState(false)
-  const [price_range, set_price_range] = useState(150)
+  const [price_range, set_price_range] = useState(550.000)
   const [checkAll, setCheckAll] = useState(true);
   const [checkAll1, setCheckAll1] = useState(true);
   const [categories, setCategories] = useState([
@@ -224,7 +225,7 @@ const AllProducts = (props) => {
       <div className="list_product_outer_container">
         <div className={`filter_shoes_container ${show_filter === true ? "active_filter_shoes_container" : ""}`}>
           <i onClick={() => { set_show_filter(false) }} className="fa-solid fa-xmark close_filter_container_button"></i>
-          <h1 className='filter_shoes_heading'>Filtrar <span>Marcos</span></h1>
+          <h1 className='filter_shoes_heading'>Filtrar <span>Productos</span></h1>
           <div className="filter_shoes_content_container">
             <div className="filter_criteria1">
               <h3 className='filter_criteria1_heading'>TIPO</h3>
@@ -235,19 +236,19 @@ const AllProducts = (props) => {
                   <span></span>
                 </label>
                 <label className='radio'>
-                  <input type="radio" value="Mens" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
+                  <input type="radio" value="Casuales" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
                   Casuales
                   <span></span>
                 </label>
 
                 <label className='radio'>
-                  <input type="radio" value="Womens" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
+                  <input type="radio" value="Elegantes" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
                   Elegantes
                   <span></span>
                 </label>
 
                 <label className='radio'>
-                  <input type="radio" value="Unisex" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
+                  <input type="radio" value="Otros" onClick={(e) => set_type_filter(e.target.value)} name="gender" />
                   Otros
                   <span></span>
                 </label>
@@ -267,12 +268,12 @@ const AllProducts = (props) => {
                   <div className='price_range_input_container'>
                     <div className='background_bar_range'></div>
 
-                    <span style={{ width: `${((price_range - 30000) / (150000 - 30000)) * 100}%` }}></span>
-                    <input type="range" min="30000" max="150000" defaultValue={150} onChange={(e) => { set_price_range(e.target.value) }} />
+                    <span style={{ width: `${((price_range - 30000) / (550000 - 30000)) * 100}%` }}></span>
+                    <input type="range" min="30000" max="550000" defaultValue={550.000} onChange={(e) => { set_price_range(e.target.value) }} />
 
                   </div>
 
-                  <div className="value right">$150,000</div>
+                  <div className="value right">$550,000</div>
 
                 </div>
               </div>
@@ -340,7 +341,7 @@ const AllProducts = (props) => {
 
           <div className="all_products_heading_container">
 
-            <h5 className="product_listing_main_heading">Todos los <span>Marcos</span></h5>
+            <h5 className="product_listing_main_heading"><span>{type_filter}</span> Marcos para gafas</h5>
 
             <div className="all_products_cart_item_content">
               <div className="all_products_item_count">{props.cart_items.length}</div>
@@ -378,7 +379,7 @@ const AllProducts = (props) => {
 
                       <h3>{element.name}</h3>
 
-                      <h4>{element.shoes_category} Running Shoes</h4>
+                      <h4>{element.shoes_category} Marcos elegantes</h4>
                       <h5 className="featured_stock_heading" style={{ color: element.shoes_stock !== 0 ? "green" : "red" }}>{element.shoes_stock !== 0 ? "In Stock" : "Out Of Stock"}</h5>
                       <div className="stars_container">
                         <i className="fa-solid fa-star"></i>
@@ -394,7 +395,7 @@ const AllProducts = (props) => {
 
                   </div>
                   <div className="card_button_container">
-                      <button onClick={() => props.add_to_cart(element.id, element.name,9,1)} className='card_button1'>Add To Cart <span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                      <button onClick={() => props.add_to_cart(element.id, element.name,9,1)} className='card_button1'>Añadir al carrito <span><i class="fa-solid fa-cart-shopping"></i></span></button>
 
                     </div>
 
@@ -426,7 +427,7 @@ const AllProducts = (props) => {
                   </div>
                   <div className="mobile_shoes_content_container">
                     <h4 className='mobile_shoes_name'>{element.name}</h4>
-                    <h5 className='mobile_shoes_type'>Marco {element.shoes_category}</h5>
+                    <h5 className='mobile_shoes_type'>{element.shoes_category} Marcos elegantes</h5>
                     <div className="stars_container1">
                       <i className="fa-solid fa-star"></i>
                       <i className="fa-solid fa-star"></i>

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import logo from '../logo.png'
-
-
+import { API_BASE_URL } from '../App';
 import "../components/css/UserLogin.css"
+
+
 const UserLogin = (props) => {
   const [user_password, set_user_password] = useState("")
   const [user_email, set_user_email] = useState("")
@@ -99,7 +100,33 @@ const UserLogin = (props) => {
       email: user_email,
       password: user_password
     };
+
+    try {
+      props.set_active_loader(true);
+      const response = await axios.post(`${API_BASE_URL}/login_user`, {
+        email: user_email,
+        password: user_password
+      });
+      
+      props.set_active_loader(false);
+      
+      if (!response.data.status) {
+        set_login_error_message("* Credenciales inválidas *");
+      } else {
+        localStorage.setItem("user_token", JSON.stringify(response.data.token));
+        props.settoken(response.data.token);
+      }
+
+      setLoginresponse(response.data.status);
+      
+    } catch (error) {
+      props.set_active_loader(false);
+      console.error('Error en login:', error);
+      set_login_error_message("* Error de conexión *");
+    }
+
     
+    /*
     try {
       props.set_active_loader(true)
   const response = await axios.post('http://127.0.0.1:8000/api/auth/login', postData);
@@ -117,9 +144,9 @@ const UserLogin = (props) => {
     } catch (error) {
       console.error('Error making POST request:', error);
     }
-  }
+      */
 
-
+    }
   }
 
 
@@ -127,16 +154,15 @@ const UserLogin = (props) => {
   return (
     <div className="login_section">
       
-      <img className="logo_image_login" src={logo} alt="Logo" />
-
-      <div className="image_heading">
-          <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
-      </div>
+      {/*<div className="logo_and_title_container">
+        <img className="logo_image_login" src="/logo.png" alt="Logo" />
+        <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
+      </div>*/}
       
       <div className="image_container">
-        <img className="image_login" src="/exclusive.jpg"></img>
+        <img className="image_login" src="/exclusive.jpg" alt="Exclusive" />
       </div>
-      
+
       <div className="login_card">
         
         <div className={`login_container ${signup === false ? "" : "login_container_rotate"}`}>

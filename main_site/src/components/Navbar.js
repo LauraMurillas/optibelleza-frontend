@@ -55,7 +55,7 @@ const Navbar = (props) => {
             Authorization: `Bearer ${props.token}`,
           };
           props.set_active_loader(true)
-          const response =await axios.get('http://127.0.0.1:8000/logout_user',{headers});
+          const response =await axios.get('http://localhost:8000/docs/api/logout_user',{headers});
           props.set_active_loader(false)
         
      
@@ -77,15 +77,18 @@ const Navbar = (props) => {
   return (
     <div className={`nave_bar`}  style={{backgroundColor:props.nave_background===true?"#1d1d1d":""}}>
       <div className="nav_logo_box">
-      <img className="logo_image" src="/logo.png"></img>
+      <div className="logo_and_title_container">
+        <img className="logo_image_login" src="/logo.png" alt="Logo" />
+        <h2 className="website_name enamela">Opti<span>Belleza</span></h2>
+      </div>
       
       </div>  
       <div className="nav_items">
-        <Link to="home_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(0)}} className={`fitem`}>Inicio<span className={`fitem_new ${props.fitem_active==0?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_about_page} className={`fitem `}>Sobre Nosotros<span className={`fitem_new ${props.fitem_active==1?"active_fitem":""}`}></span></Link>
-        <Link to="contact_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(2)}} className={`fitem`}>Contacto<span className={`fitem_new ${props.fitem_active==2?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_all_products_page} className={`fitem `}>Tienda<span className={`fitem_new ${props.fitem_active==3?"active_fitem":""}`}></span></Link>
-        <Link onClick={active_checkout_page} className={`fitem `}>Mis Pedidos<span className={`fitem_new ${props.fitem_active==4?"active_fitem":""}`}></span></Link>
+        <Link to="home_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(0)}} className={`fitem`}>Home<span className={`fitem_new ${props.fitem_active==0?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_about_page} className={`fitem `}>Sobre nosotros<span className={`fitem_new ${props.fitem_active==1?"active_fitem":""}`}></span></Link>
+        <Link to="contact_section" smooth={true} duration={800} onClick={()=>{props.set_fitem_active(2)}} className={`fitem`}>Contáctanos<span className={`fitem_new ${props.fitem_active==2?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_all_products_page} className={`fitem `}>Marcos y Gafas<span className={`fitem_new ${props.fitem_active==3?"active_fitem":""}`}></span></Link>
+        <Link onClick={active_checkout_page} className={`fitem `}>Ordenes<span className={`fitem_new ${props.fitem_active==4?"active_fitem":""}`}></span></Link>
       </div>
 
       <div className="profile_container">
@@ -105,8 +108,8 @@ const Navbar = (props) => {
           <h1 style={{color:props.nave_background===true?"#161616":""}}>Cerrar sesión</h1>
           
           </div>
+      )}
 
-          
       </div>
       
     </div>

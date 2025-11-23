@@ -1,7 +1,13 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 .App {
   text-align: center;
+}
+@font-face {
+  font-family: ultra; /* Choose a suitable font name */
+  src: url("../public/Vermin-Vibes-Slant.ttf") ;
+}
+.ultra{
+  font-family: ultra;
 }
 
 .App-logo {
@@ -14,7 +20,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.Admin_page{
+  background-color: red;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,29 +36,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-.login_page_section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.login_page {
-  display: none;
-}
-
-.login_page.hide_login {
-  display: none;
-}
-
-/* Asegura que el contenido principal quede interactuable cuando el login está oculto */
-.User_page {
-  position: relative;
-  z-index: 1;
 }
 
 @keyframes App-logo-spin {

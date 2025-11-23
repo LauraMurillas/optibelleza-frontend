@@ -10,15 +10,23 @@
   transition: 0.3s ease-in-out;
   
 }
-.logo_image_login{
-  /*position de la imagen del logo en el login*/
+
+.logo_and_title_container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
   position: absolute;
-  top: -5px;
-  left: 30px;
-  width: 90px; 
-    height: auto;
-    margin-right:5px ;
-    filter: invert(100%);
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo_image_login{
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  /*position de la imagen del logo en el login*/
 
 }
 .show_alert{
@@ -113,8 +121,7 @@
 
 .login_card{
   display: flex;
-  
-
+  margin-top: 80px;
   width: 290px;
   align-items: center;
   justify-content: center;
@@ -171,7 +178,7 @@
   }
   .login-front label{
     position: relative;
-    color: #da0e0e;
+    color: #ebdc06;
     font-size:15px ;
     font-weight: 600 ;
     height: 20px;
@@ -245,9 +252,10 @@
   left: 10px;
 }
 .website_name{
-  
-  font-size: 15px;
-  color: #f6f6f6;
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
   
 }
 .website_name span{
@@ -339,7 +347,7 @@
     transform: translateX(0px) translateY(-19px) translateZ(40px);
     height: 4px;
     padding-inline:5px ;
-    background-color: #e013ba;
+    background-color: #dbc929;
     font-size: 13px;
     letter-spacing: 0.5px;
     color: #4dd608;
@@ -402,6 +410,7 @@
     text-wrap: nowrap !important;
   }
 .login_section{
+  position: relative;
   display: flex;
   width: 100%;
   align-items: center;

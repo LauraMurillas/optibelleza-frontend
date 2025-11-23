@@ -9,8 +9,8 @@ const { Country, State, City } = require('country-state-city');
 // Get all states in India
 
 const Orders = (props) => {
-  const [selected, setSelected] = useState("Standard Shipping")
-  const [selected1, setSelected1] = useState(["fa-solid fa-money-bill", "Cash On Delivery"])
+  const [selected, setSelected] = useState("Envio Standard")
+  const [selected1, setSelected1] = useState(["fa-solid fa-money-bill", "Contra-entrega"])
   const [selected_country, setSelected_country] = useState("Select Country")
   const [selected_state, setSelected_state] = useState("Select State")
   const [selected_city, setSelected_city] = useState("Select City")
@@ -20,8 +20,8 @@ const Orders = (props) => {
   const [active_place_order, set_active_place_order] = useState(false)
   const [size_drop, set_size_drop] = useState(false)
   const [active_order_summary, set_active_order_summary] = useState(false)
-  const options = [["Standard Shipping", "7-8 days"], ["Expedited Shipping", "2-3 days"], ["Express Shipping", "Same day"]];
-  const options1 = [["Cash On Delivery", "fa-solid fa-money-bill"], ["Credit Card", "fa-solid fa-credit-card"], ["UPI Payment", "fa-brands fa-paypal"]];
+  const options = [["Envio Standard", "7-8 dias"], ["Envio Semi-express", "2-3 dias"], ["Envio Express", "Mismo día"]];
+  const options1 = [["Contra-entrega", "fa-solid fa-money-bill"], ["Tarjeta de Crédito", "fa-solid fa-credit-card"], ["Pago Online", "fa-brands fa-paypal"]];
   const [item_name, set_item_name] = useState("")
   const [selectedFile, setSelectedFile] = useState(null);
   const [size_drop_index, set_size_drop_index] = useState(0);
@@ -45,11 +45,11 @@ const Orders = (props) => {
 
   
   useEffect(() => {
-    if (selected === "Standard Shipping") {
+    if (selected === "Envio Standard") {
       set_delivery_cost(10)
-    } else if (selected === "Expedited Shipping") {
+    } else if (selected === "Envio Semi-express") {
       set_delivery_cost(15)
-    } else if (selected === "Express Shipping") {
+    } else if (selected === "Envio Express") {
       set_delivery_cost(20)
     }
 
@@ -78,7 +78,7 @@ const Orders = (props) => {
         });
       });
 
-  const response = await axios.put(`http://127.0.0.1:8000/set_item_size`, item_data, { headers });
+  const response = await axios.put(`http://localhost:8000/docs/set_item_size`, item_data, { headers });
 
 
 
@@ -100,10 +100,8 @@ const Orders = (props) => {
           };
           props.set_cart_items(props.cart_items.filter((element) => element.product_name !== item_name))
           props.set_shoes_name(props.shoes_names.filter((element) => element !== item_name))
-       
-          const response = await axios.get(`http://127.0.0.1:8000/delete_cart_item/${item_name}`, { headers });
-         
-        
+
+          const response = await axios.get(`http://localhost:8000/docs/api/delete_cart_item/${item_name}`, { headers });
 
 
 
@@ -127,10 +125,8 @@ const Orders = (props) => {
           });
         });
 
-       
-  const response = await axios.put(`http://127.0.0.1:8000/decrease_cart_item`, item_data, { headers });
-        
-      
+
+  const response = await axios.put(`http://localhost:8000/docs/api/decrease_cart_item`, item_data, { headers });
 
 
 
@@ -148,10 +144,8 @@ const Orders = (props) => {
       };
       props.set_cart_items(props.cart_items.filter((element) => element.product_name !== item_name))
       props.set_shoes_name(props.shoes_names.filter((element) => element !== item_name))
-      
-  const response = await axios.get(`http://127.0.0.1:8000/delete_cart_item/${item_name}`, { headers });
-      
-      
+
+  const response = await axios.get(`http://localhost:8000/docs/api/delete_cart_item/${item_name}`, { headers });
 
 
 
@@ -171,7 +165,7 @@ const Orders = (props) => {
 
       }
       props.set_active_loader(true)
-  const response = await axios.put(`http://127.0.0.1:8000/increase_cart_item`, item_data, { headers });
+  const response = await axios.put(`http://localhost:8000/docs/api/increase_cart_item`, item_data, { headers });
       props.set_active_loader(false)
       if (response.data.status=="ok"){
       props.set_cart_items((prevData) => {
@@ -211,7 +205,7 @@ const Orders = (props) => {
         user_address: `${street}, ${city}, ${state}, ${country}`
       }
       props.set_active_loader(true)
-  const response = axios.post("http://127.0.0.1:8000/add_address", address_data, { headers })
+  const response = axios.post("http://localhost:8000/docs/api/add_address", address_data, { headers })
       props.set_active_loader(false)
       props.set_user_adress(`${street}, ${city}, ${state}, ${country}`)
       set_active_edit_address(false)
@@ -229,7 +223,7 @@ const Orders = (props) => {
         const headers = {
           Authorization: `Bearer ${props.token}`,
         };
-  const response = await axios.get('http://127.0.0.1:8000/all_cart_items', { headers });
+  const response = await axios.get('http://localhost:8000/docs/api/all_cart_items', { headers });
         ;
 
         props.set_cart_items(response.data);
@@ -366,7 +360,7 @@ const Orders = (props) => {
 
       }
       props.set_active_loader(true)
-  const response = await axios.post("http://127.0.0.1:8000/add_order", checkout_data, { headers })
+  const response = await axios.post("http://localhost:8000/docs/api/add_order", checkout_data, { headers })
       set_active_place_order(false)
       props.set_active_loader(false)
       set_active_order_sucess(true)
@@ -411,22 +405,22 @@ const Orders = (props) => {
 
 
       <div className={`shopping_cart`}>
-        <button onClick={() => { set_active_order_summary(true) }} className="order_summary_button" >ORDER SUMMARY</button>
+        <button onClick={() => { set_active_order_summary(true) }} className="order_summary_button" >Tu Carrito</button>
         <div className="main_heading_container"><i onClick={active_load_overlay_conatiner} className="fa-solid fa-arrow-left cart_back"></i><h3>Carrito de <span>Compras</span></h3></div>
 
 
         <div className="shopping_content">
           <div className="heading_box">
-            <h4 className='shopping_content_heading'><span>Carrito de</span> Compras</h4>
+            <h4 className='shopping_content_heading'><span>Carrito</span> de Compras</h4>
             <h3>{props.cart_items.length} Artículos</h3>
 
           </div>
           <div className={`no_item_in_cart ${cart_data.length === 0 ? "active_no_item_in_cart" : ""}`}>
 
             <i class="fa-solid fa-cart-shopping"></i>
-            <h4>CARRITO VACÍO</h4>
+            <h4>No hay productos en tu carrito</h4>
 
-            <span onClick={active_product_container}>Agregar Artículo</span>
+            <span onClick={active_product_container}>Agregar artículo</span>
           </div>
 
           <div className="table_order_container">
@@ -492,7 +486,7 @@ const Orders = (props) => {
                   </div>
                   <div className="mobile_shoes_content_container">
                     <h4 className='mobile_shoes_name'>{element.product_name}</h4>
-                    <h5 className='mobile_shoes_type'>Marco {element.shoes_category}</h5>
+                    <h5 className='mobile_shoes_type'>{element.shoes_category} Marcos</h5>
                     <h4 className='mobile_shoes_price'>${element.price}</h4>
 
                     <div className="mobile_shoes_bottom_container">
@@ -545,7 +539,7 @@ const Orders = (props) => {
           <i onClick={open_order_summary_box} className="fa-solid fa-xmark close_order_summary"></i>
           <div className="summary_box">
 
-            <h4><span>Order</span> Summary</h4>
+            <h4><span>Tu</span> Carrito</h4>
 
           </div>
 
@@ -555,26 +549,26 @@ const Orders = (props) => {
 
           </div>
           <div className="payment_mode">
-            <h4 className='mode_title'>PAYMENT</h4>
+            <h4 className='mode_title'>Método de pago</h4>
             <Dropdown options={options1} selected={selected1} setSelected={setSelected1} drop_type={"payment"}></Dropdown>
 
           </div>
           <div className="promocode">
-            <h4>PROMO CODE</h4>
+            <h4>CÓDIGO PROMOCIONAL</h4>
             <div className="promo_code_container">
               <input type="text" placeholder='Enter Promo Code' />
-              <button className="Promo_button" >APPLY</button>
+              <button className="Promo_button" >APLICAR</button>
             </div>
 
           </div>
           <div className="address_container">
             <div className="address_heading_container">
-              <h4>ADDRESS</h4>
-              <span onClick={() => { set_active_edit_address(true) }}>{props.user_address === "" ? "Add" : "Edit"}</span>
+              <h4>DIRECCIÓN</h4>
+              <span onClick={() => { set_active_edit_address(true) }}>{props.user_address === "" ? "Agregar" : "Editar"}</span>
 
             </div>
             <div className="address_content_container">
-              {props.user_address === "none" ? <h4>NO ADDRESS</h4> :
+              {props.user_address === "none" ? <h4>No hay una dirección agregada</h4> :
                 <p>{props.user_address}</p>
               }
             </div>
@@ -606,10 +600,10 @@ const Orders = (props) => {
       <div className={`edit_address_outer_container ${active_edit_address === true ? "active_edit_address_container" : ""}`}>
         <div className={`edit_address_container`}>
           <i className="fa-solid fa-xmark close_edit_address" onClick={() => { set_active_edit_address(false) }}></i>
-          <h4 className='edit_address_main_heading'><span>Edit</span> Address</h4>
+          <h4 className='edit_address_main_heading'><span>Editar</span> Dirección</h4>
 
           
-          <span className='edit_save_button' onClick={() => { add_address(selected_country, selected_city, selected_state, selected_street) }}>Save Changes</span>
+          <span className='edit_save_button' onClick={() => { add_address(selected_country, selected_city, selected_state, selected_street) }}>Guardar cambios</span>
         </div>
       </div>
 
@@ -620,20 +614,20 @@ const Orders = (props) => {
       <div className={`place_order ${active_place_order === true ? "active_place_order" : ""}`}>
         <div className="place_order_outer_box">
         <i className="fa-solid fa-xmark close_edit_address" onClick={()=>{set_active_place_order(false)}}></i>
-          <h2 className='place_order_heading'>Order <span>Summary</span></h2>
+          <h2 className='place_order_heading'>Resumen de <span>Pedido</span></h2>
           <div className='place_order_content_container'>
           <label className='place_order_shipping_method'>
-              <span>Shipping:</span>
+              <span>Envío:</span>
               <h3>{selected}</h3>
             </label>
 
             <label className='place_order_payment_method'>
-              <span>Payment:</span>
+              <span>Método de pago:</span>
               <h3>{selected1[1]}</h3>
             </label>
 
             <label className='place_order_address'>
-              <span>Address:</span>
+              <span>Dirección:</span>
               <h3>{props.user_address}</h3>
             </label>
 
@@ -657,10 +651,10 @@ const Orders = (props) => {
                 <h4>${total}</h4>
               </div>
               <div className="place_order_delivery">
-                <h4>delivery</h4>
-                <h4>{selected === "Standard Shipping" ? "$10" :
-                  selected === "Expedited Shipping" ? "$15" :
-                    selected === "Express Shipping" ? "$20" : ""}</h4>
+                <h4>Envío</h4>
+                <h4>{selected === "Envío Standard" ? "$10" :
+                  selected === "Envío Semi-Express" ? "$15" :
+                    selected === "Envío Express" ? "$20" : ""}</h4>
               </div>
 
               <div className="place_order_total_bill">
@@ -671,7 +665,7 @@ const Orders = (props) => {
             </div>
           </div>
           <div className="place_order_button_container">
-            <span className='place_order_button' onClick={()=>{checkout_all_items(props.user_address,selected,selected1)}}>Place Order</span>
+            <span className='place_order_button' onClick={()=>{checkout_all_items(props.user_address,selected,selected1)}}>Realizar Pedido</span>
             
           </div>
         </div>
@@ -682,8 +676,8 @@ const Orders = (props) => {
       <div className={`order_placed_sucessfull ${active_order_sucess===true?"active_order_placed_sucessfull":""}`}>
       <i className="fa-solid fa-check"></i>
       <div className='order_placed_sucessfull_button_container'>
-      <span className='place_order_button' onClick={active_load_overlay_conatiner}>HOME</span>
-      <span className='place_order_button' onClick={()=>{checkout_all_items(props.user_address,selected,selected1)}}>SHOP</span>
+      <span className='place_order_button' onClick={active_load_overlay_conatiner}>INICIO</span>
+      <span className='place_order_button' onClick={()=>{checkout_all_items(props.user_address,selected,selected1)}}>COMPRA</span>
       </div>
       </div>
 

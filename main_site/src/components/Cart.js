@@ -26,8 +26,9 @@ const Cart = (props) => {
     console.log('===================');
     console.log('Token:', props.token);
   
-   
-  const ws = new WebSocket(`ws://127.0.0.1:8000/ws1`);
+   // URL correcta para WebSocket
+  const wsUrl = `ws://localhost:8000/ws1?token=${encodeURIComponent(props.token)}`;
+  const ws = new WebSocket(wsUrl);
   
       ws.onopen = () => {
         console.log('WebSocket connection opened');
@@ -46,7 +47,7 @@ const Cart = (props) => {
           ws.close();
         }
       };
-  }, []);
+  }, [props.token]);
   const active_all_products_page=()=>{
      
     props.set_load_overlay_active(true)
