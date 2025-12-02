@@ -83,6 +83,7 @@ export const cartAPI = {
 export const ordersAPI = {
     create: (orderData) => apiClient.post('/api/order/add_order', orderData),
     getUserOrders: () => apiClient.get('/api/order/current_user_all_order'),
+    getAll: () => apiClient.get('/api/order/all_order'), // Admin endpoint
     delete: (id) => apiClient.get(`/api/order/delete_order/${id}`),
 };
 

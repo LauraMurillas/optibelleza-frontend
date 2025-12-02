@@ -20,9 +20,11 @@ import {
     CircularProgress,
     Alert,
     Chip,
+    Tabs,
+    Tab,
 } from '@mui/material';
-import { Add, Edit, Delete, Visibility } from '@mui/icons-material';
-import { productsAPI } from '../api/client';
+import { Add, Edit, Delete, Visibility, ShoppingBag, Inventory } from '@mui/icons-material';
+import { productsAPI, ordersAPI } from '../api/client';
 
 const AdminDashboard = () => {
     const [products, setProducts] = useState([]);
@@ -39,10 +41,29 @@ const AdminDashboard = () => {
         shoes_stock: '',
         shoes_description: '',
     });
+    const [tabValue, setTabValue] = useState(0);
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        if (tabValue === 0) {
+            fetchProducts();
+        } else {
+            fetchOrders();
+        }
+    }, [tabValue]);
+
+    const fetchOrders = async () => {
+        try {
+            setLoading(true);
+            const response = await ordersAPI.getAll();
+            setOrders(response.data);
+        } catch (err) {
+            setError('Error al cargar pedidos');
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const fetchProducts = async () => {
         try {
@@ -140,14 +161,23 @@ const AdminDashboard = () => {
                 <Typography variant="h4" sx={{ fontWeight: 700 }}>
                     Panel de Administración
                 </Typography>
-                <Button
-                    variant="contained"
-                    startIcon={<Add />}
-                    onClick={() => handleOpenDialog()}
-                    sx={{ bgcolor: '#FFC107', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
-                >
-                    Nuevo Producto
-                </Button>
+                {tabValue === 0 && (
+                    <Button
+                        variant="contained"
+                        startIcon={<Add />}
+                        onClick={() => handleOpenDialog()}
+                        sx={{ bgcolor: '#FFC107', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
+                    >
+                        Nuevo Producto
+                    </Button>
+                )}
+            </Box>
+
+            <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
+                <Tabs value={tabValue} onChange={(e, val) => setTabValue(val)} textColor="inherit" indicatorColor="primary">
+                    <Tab icon={<Inventory />} iconPosition="start" label="Productos" />
+                    <Tab icon={<ShoppingBag />} iconPosition="start" label="Pedidos" />
+                </Tabs>
             </Box>
 
             {error && (
@@ -156,62 +186,106 @@ const AdminDashboard = () => {
                 </Alert>
             )}
 
-            <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                        <TableRow sx={{ bgcolor: '#000' }}>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Imagen</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Nombre</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Categoría</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Tipo</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Precio</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Stock</TableCell>
-                            <TableCell sx={{ color: 'white', fontWeight: 700 }}>Acciones</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {products.map((product) => (
-                            <TableRow key={product.id} hover>
-                                <TableCell>
-                                    <Box
-                                        component="img"
-                                        src={product.product_image || 'https://via.placeholder.com/50'}
-                                        alt={product.name}
-                                        sx={{ width: 50, height: 50, objectFit: 'cover', borderRadius: 1 }}
-                                    />
-                                </TableCell>
-                                <TableCell>{product.name}</TableCell>
-                                <TableCell>{product.shoes_category}</TableCell>
-                                <TableCell>
-                                    <Chip
-                                        label={product.shoes_type}
-                                        size="small"
-                                        color={product.shoes_type === 'Featured' ? 'primary' : 'default'}
-                                    />
-                                </TableCell>
-                                <TableCell>${product.price}</TableCell>
-                                <TableCell>{product.shoes_stock}</TableCell>
-                                <TableCell>
-                                    <IconButton
-                                        size="small"
-                                        onClick={() => handleOpenDialog(product)}
-                                        sx={{ color: '#FFC107' }}
-                                    >
-                                        <Edit />
-                                    </IconButton>
-                                    <IconButton
-                                        size="small"
-                                        onClick={() => handleDelete(product.id)}
-                                        sx={{ color: '#D32F2F' }}
-                                    >
-                                        <Delete />
-                                    </IconButton>
-                                </TableCell>
+            {tabValue === 0 ? (
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow sx={{ bgcolor: '#000' }}>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Imagen</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Nombre</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Categoría</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Tipo</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Precio</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Stock</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Acciones</TableCell>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                        </TableHead>
+                        <TableBody>
+                            {products.map((product) => (
+                                <TableRow key={product.id} hover>
+                                    <TableCell>
+                                        <Box
+                                            component="img"
+                                            src={product.product_image || 'https://via.placeholder.com/50'}
+                                            alt={product.name}
+                                            sx={{ width: 50, height: 50, objectFit: 'cover', borderRadius: 1 }}
+                                        />
+                                    </TableCell>
+                                    <TableCell>{product.name}</TableCell>
+                                    <TableCell>{product.shoes_category}</TableCell>
+                                    <TableCell>
+                                        <Chip
+                                            label={product.shoes_type}
+                                            size="small"
+                                            color={product.shoes_type === 'Featured' ? 'primary' : 'default'}
+                                        />
+                                    </TableCell>
+                                    <TableCell>${product.price}</TableCell>
+                                    <TableCell>{product.shoes_stock}</TableCell>
+                                    <TableCell>
+                                        <IconButton
+                                            size="small"
+                                            onClick={() => handleOpenDialog(product)}
+                                            sx={{ color: '#FFC107' }}
+                                        >
+                                            <Edit />
+                                        </IconButton>
+                                        <IconButton
+                                            size="small"
+                                            onClick={() => handleDelete(product.id)}
+                                            sx={{ color: '#D32F2F' }}
+                                        >
+                                            <Delete />
+                                        </IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            ) : (
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow sx={{ bgcolor: '#000' }}>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>ID Pedido</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Dirección</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Método Envío</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Total</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Estado</TableCell>
+                                <TableCell sx={{ color: 'white', fontWeight: 700 }}>Producto</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {orders.map((order) => (
+                                <TableRow key={order.order_id} hover>
+                                    <TableCell>#{order.order_id}</TableCell>
+                                    <TableCell>{order.user_address || 'N/A'}</TableCell>
+                                    <TableCell>{order.shipping_method || 'N/A'}</TableCell>
+                                    <TableCell>${order.price * order.product_quantity}</TableCell>
+                                    <TableCell>
+                                        <Chip
+                                            label={order.order_status || 'Pendiente'}
+                                            color={order.order_status === 'Completed' ? 'success' : 'warning'}
+                                            size="small"
+                                        />
+                                    </TableCell>
+                                    <TableCell>
+                                        {order.product_name} (x{order.product_quantity})
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                            {orders.length === 0 && (
+                                <TableRow>
+                                    <TableCell colSpan={6} align="center" sx={{ py: 3 }}>
+                                        No hay pedidos registrados
+                                    </TableCell>
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            )}
 
             {/* Dialog for Create/Edit */}
             <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
@@ -302,7 +376,7 @@ const AdminDashboard = () => {
                     </DialogActions>
                 </form>
             </Dialog>
-        </Container>
+        </Container >
     );
 };
 
