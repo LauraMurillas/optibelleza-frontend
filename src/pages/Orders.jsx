@@ -45,7 +45,7 @@ const Orders = () => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -140,7 +140,7 @@ const Orders = () => {
                                     <Typography variant="body2">
                                         <strong>Total:</strong>
                                     </Typography>
-                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#c4a043' }}>
                                         ${order.price * order.product_quantity}
                                     </Typography>
                                     <Typography variant="caption" color="text.secondary">
@@ -157,3 +157,4 @@ const Orders = () => {
 };
 
 export default Orders;
+

@@ -18,8 +18,8 @@ const Footer = () => {
                     {/* Brand */}
                     <Grid item xs={12} md={4}>
                         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                            <Visibility sx={{ mr: 1, fontSize: 32, color: '#FFC107' }} />
-                            <Typography variant="h6" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                            <Visibility sx={{ mr: 1, fontSize: 32, color: '#c4a043' }} />
+                            <Typography variant="h6" sx={{ fontWeight: 700, color: '#c4a043' }}>
                                 OptiBelleza
                             </Typography>
                         </Box>
@@ -31,7 +31,7 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <Grid item xs={12} md={4}>
-                        <Typography variant="h6" sx={{ mb: 2, color: '#FFC107' }}>
+                        <Typography variant="h6" sx={{ mb: 2, color: '#c4a043' }}>
                             Enlaces Rápidos
                         </Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -49,24 +49,24 @@ const Footer = () => {
 
                     {/* Contact */}
                     <Grid item xs={12} md={4}>
-                        <Typography variant="h6" sx={{ mb: 2, color: '#FFC107' }}>
+                        <Typography variant="h6" sx={{ mb: 2, color: '#c4a043' }}>
                             Contacto
                         </Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Email sx={{ fontSize: 18, color: '#FFC107' }} />
+                                <Email sx={{ fontSize: 18, color: '#c4a043' }} />
                                 <Typography variant="body2" sx={{ color: '#BDBDBD' }}>
                                     info@optibelleza.com
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <Phone sx={{ fontSize: 18, color: '#FFC107' }} />
+                                <Phone sx={{ fontSize: 18, color: '#c4a043' }} />
                                 <Typography variant="body2" sx={{ color: '#BDBDBD' }}>
                                     +1 (555) 123-4567
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                <LocationOn sx={{ fontSize: 18, color: '#FFC107' }} />
+                                <LocationOn sx={{ fontSize: 18, color: '#c4a043' }} />
                                 <Typography variant="body2" sx={{ color: '#BDBDBD' }}>
                                     Ciudad, País
                                 </Typography>
@@ -87,3 +87,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

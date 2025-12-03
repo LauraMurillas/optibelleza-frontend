@@ -99,7 +99,7 @@ const Products = () => {
             {/* Products Grid */}
             {loading ? (
                 <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-                    <CircularProgress sx={{ color: '#FFC107' }} />
+                    <CircularProgress sx={{ color: '#c4a043' }} />
                 </Box>
             ) : error ? (
                 <Alert severity="error">{error}</Alert>
@@ -123,3 +123,4 @@ const Products = () => {
 };
 
 export default Products;
+

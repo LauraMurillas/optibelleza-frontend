@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Container,
     Box,
@@ -10,6 +10,11 @@ import {
     Divider,
     Alert,
     MenuItem,
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogContentText,
+    CircularProgress,
 } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -27,6 +32,38 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
+    const [paymentPending, setPaymentPending] = useState(false);
+    const [pollingInterval, setPollingInterval] = useState(null);
+
+    // Cleanup polling on unmount
+    useEffect(() => {
+        return () => {
+            if (pollingInterval) clearInterval(pollingInterval);
+        };
+    }, [pollingInterval]);
+
+    const checkOrderStatus = async () => {
+        try {
+            const response = await ordersAPI.getUserOrders();
+            const orders = response.data;
+
+            if (orders && orders.length > 0) {
+                // Check if the latest order is paid/confirmed
+                // Assuming the backend updates the status via webhook
+                const latestOrder = orders[orders.length - 1];
+
+                if (latestOrder && latestOrder.order_status !== 'pending' && latestOrder.order_status !== 'Pending') {
+                    clearInterval(pollingInterval);
+                    setPaymentPending(false);
+                    setSuccess(true);
+                    clearCart();
+                    navigate('/orders');
+                }
+            }
+        } catch (err) {
+            console.error("Error polling orders", err);
+        }
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,22 +82,35 @@ const Checkout = () => {
         setError('');
 
         try {
-            await ordersAPI.create(formData);
-            setSuccess(true);
-            clearCart();
+            const response = await ordersAPI.create(formData);
 
-            // Redirect to orders page after 2 seconds
-            setTimeout(() => {
-                navigate('/orders');
-            }, 2000);
+            // Check if backend returned a checkout URL
+            if (response.data && response.data.checkout_url) {
+                // Open Stripe in new tab
+                window.open(response.data.checkout_url, '_blank');
+                setPaymentPending(true);
+
+                // Start polling
+                const interval = setInterval(checkOrderStatus, 3000); // Check every 3 seconds
+                setPollingInterval(interval);
+
+            } else {
+                // Fallback for non-Stripe orders
+                setSuccess(true);
+                clearCart();
+                setTimeout(() => {
+                    navigate('/orders');
+                }, 2000);
+            }
         } catch (error) {
+            console.error('Checkout error:', error);
             setError(error.response?.data?.detail || 'Error al procesar el pedido');
         } finally {
             setLoading(false);
         }
     };
 
-    if (cartItems.length === 0 && !success) {
+    if (cartItems.length === 0 && !success && !paymentPending) {
         navigate('/cart');
         return null;
     }
@@ -192,7 +242,7 @@ const Checkout = () => {
                                 <Typography variant="h6" sx={{ fontWeight: 700 }}>
                                     Total:
                                 </Typography>
-                                <Typography variant="h6" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                                <Typography variant="h6" sx={{ fontWeight: 700, color: '#c4a043' }}>
                                     ${cartTotal + (formData.shipping_method === 'Express' ? 10 : 0)}
                                 </Typography>
                             </Box>
@@ -211,8 +261,24 @@ const Checkout = () => {
                     </Grid>
                 </Grid>
             </form>
+
+            {/* Payment Pending Dialog */}
+            <Dialog open={paymentPending} disableEscapeKeyDown>
+                <DialogTitle>Procesando Pago</DialogTitle>
+                <DialogContent>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 2 }}>
+                        <CircularProgress sx={{ mb: 3 }} />
+                        <DialogContentText align="center">
+                            Se ha abierto una nueva pestaña para realizar el pago seguro con Stripe.
+                            <br /><br />
+                            Por favor completa el pago en la nueva pestaña. Esta ventana se actualizará automáticamente cuando confirmemos tu pago.
+                        </DialogContentText>
+                    </Box>
+                </DialogContent>
+            </Dialog>
         </Container>
     );
 };
 
 export default Checkout;
+

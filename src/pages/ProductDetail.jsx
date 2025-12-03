@@ -73,7 +73,7 @@ const ProductDetail = () => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -129,7 +129,7 @@ const ProductDetail = () => {
                             {product.name}
                         </Typography>
 
-                        <Typography variant="h4" sx={{ color: '#FFC107', fontWeight: 700, mb: 2 }}>
+                        <Typography variant="h4" sx={{ color: '#c4a043', fontWeight: 700, mb: 2 }}>
                             ${product.price}
                         </Typography>
 
@@ -212,3 +212,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+

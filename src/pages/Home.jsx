@@ -81,7 +81,7 @@ const Home = () => {
                     sx={{
                         color: '#000',
                         textDecoration: 'underline',
-                        '&:hover': { color: '#FFC107' },
+                        '&:hover': { color: '#c4a043' },
                     }}
                 >
                     Ver todos los {title.toLowerCase()}
@@ -101,7 +101,7 @@ const Home = () => {
                         zIndex: 2,
                         bgcolor: 'white',
                         boxShadow: 2,
-                        '&:hover': { bgcolor: '#FFC107' },
+                        '&:hover': { bgcolor: '#c4a043' },
                     }}
                 >
                     <ArrowBack />
@@ -124,7 +124,7 @@ const Home = () => {
                             borderRadius: 4,
                         },
                         '&::-webkit-scrollbar-thumb': {
-                            bgcolor: '#FFC107',
+                            bgcolor: '#c4a043',
                             borderRadius: 4,
                         },
                     }}
@@ -230,7 +230,7 @@ const Home = () => {
                         zIndex: 2,
                         bgcolor: 'white',
                         boxShadow: 2,
-                        '&:hover': { bgcolor: '#FFC107' },
+                        '&:hover': { bgcolor: '#c4a043' },
                     }}
                 >
                     <ArrowForward />
@@ -242,7 +242,7 @@ const Home = () => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -329,12 +329,15 @@ const Home = () => {
                                 '&:hover': {
                                     bgcolor: '#3A4FAF',
                                 },
+                                display: 'flex',
+                                left: '30%',
+                                justifyContent: 'center',
                             }}
                         >
                             Compra ahora
                         </Button>
                         <Typography variant="caption" sx={{ display: 'block', mt: 2, color: '#999', textAlign: 'center' }}>
-                            Solo hasta el 30 de noviembre
+                            Solo hasta el 20 de diciembre
                         </Typography>
                     </Box>
                 </Container>
@@ -343,7 +346,7 @@ const Home = () => {
             {/* Free Shipping Banner */}
             <Box
                 sx={{
-                    bgcolor: '#FFC107',
+                    bgcolor: '#c4a043',
                     py: 2,
                     textAlign: 'center',
                 }}
@@ -424,3 +427,4 @@ const Home = () => {
 };
 
 export default Home;
+

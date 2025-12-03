@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children }) => {
                     minHeight: '100vh',
                 }}
             >
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -29,3 +29,4 @@ const ProtectedRoute = ({ children }) => {
 };
 
 export default ProtectedRoute;
+

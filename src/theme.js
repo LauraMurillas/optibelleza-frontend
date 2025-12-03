@@ -5,7 +5,7 @@ const theme = createTheme({
     palette: {
         mode: 'light',
         primary: {
-            main: '#FFC107', // Yellow
+            main: '#c4a043', // Gold
             light: '#FFD54F',
             dark: '#FFA000',
             contrastText: '#000000',
@@ -111,7 +111,7 @@ const theme = createTheme({
                 root: {
                     '& .MuiOutlinedInput-root': {
                         '&:hover fieldset': {
-                            borderColor: '#FFC107',
+                            borderColor: '#c4a043',
                         },
                     },
                 },

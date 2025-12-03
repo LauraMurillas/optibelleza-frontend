@@ -79,6 +79,6 @@ Make sure the backend API is running at `http://127.0.0.1:8000` before starting 
 
 ## Color Scheme
 
-- **Primary**: Yellow (#FFC107)
+- **Primary**: Gold (#c4a043)
 - **Secondary**: Black (#000000)
 - **Background**: White (#FFFFFF)

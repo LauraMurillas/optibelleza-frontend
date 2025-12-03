@@ -9,7 +9,7 @@ const AdminRoute = ({ children }) => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -26,3 +26,4 @@ const AdminRoute = ({ children }) => {
 };
 
 export default AdminRoute;
+

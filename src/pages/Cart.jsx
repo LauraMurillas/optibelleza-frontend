@@ -124,7 +124,7 @@ const Cart = () => {
 
                                 {/* Price */}
                                 <Grid item xs={4} sm={2}>
-                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#c4a043' }}>
                                         ${item.price * item.product_quantity}
                                     </Typography>
                                 </Grid>
@@ -167,7 +167,7 @@ const Cart = () => {
                             <Typography variant="h6" sx={{ fontWeight: 700 }}>
                                 Total:
                             </Typography>
-                            <Typography variant="h6" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                            <Typography variant="h6" sx={{ fontWeight: 700, color: '#c4a043' }}>
                                 ${cartTotal}
                             </Typography>
                         </Box>
@@ -198,3 +198,4 @@ const Cart = () => {
 };
 
 export default Cart;
+

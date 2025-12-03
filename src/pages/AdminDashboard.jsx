@@ -150,7 +150,7 @@ const AdminDashboard = () => {
     if (loading) {
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-                <CircularProgress sx={{ color: '#FFC107' }} />
+                <CircularProgress sx={{ color: '#c4a043' }} />
             </Box>
         );
     }
@@ -166,7 +166,7 @@ const AdminDashboard = () => {
                         variant="contained"
                         startIcon={<Add />}
                         onClick={() => handleOpenDialog()}
-                        sx={{ bgcolor: '#FFC107', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
+                        sx={{ bgcolor: '#c4a043', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
                     >
                         Nuevo Producto
                     </Button>
@@ -226,7 +226,7 @@ const AdminDashboard = () => {
                                         <IconButton
                                             size="small"
                                             onClick={() => handleOpenDialog(product)}
-                                            sx={{ color: '#FFC107' }}
+                                            sx={{ color: '#c4a043' }}
                                         >
                                             <Edit />
                                         </IconButton>
@@ -369,7 +369,7 @@ const AdminDashboard = () => {
                         <Button
                             type="submit"
                             variant="contained"
-                            sx={{ bgcolor: '#FFC107', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
+                            sx={{ bgcolor: '#c4a043', color: '#000', '&:hover': { bgcolor: '#FFD54F' } }}
                         >
                             {editingProduct ? 'Actualizar' : 'Crear'}
                         </Button>
@@ -381,3 +381,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+

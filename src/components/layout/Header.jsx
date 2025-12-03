@@ -34,7 +34,7 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/* Logo */}
-                    <Visibility sx={{ mr: 1, fontSize: 32, color: '#FFC107' }} />
+                    <Visibility sx={{ mr: 1, fontSize: 32, color: '#c4a043' }} />
                     <Typography
                         variant="h5"
                         component="div"
@@ -42,7 +42,7 @@ const Header = () => {
                             flexGrow: 1,
                             fontWeight: 700,
                             cursor: 'pointer',
-                            color: '#FFC107',
+                            color: '#c4a043',
                         }}
                         onClick={() => navigate('/')}
                     >
@@ -54,7 +54,7 @@ const Header = () => {
                         <Button
                             color="inherit"
                             onClick={() => navigate('/products')}
-                            sx={{ color: 'white', '&:hover': { color: '#FFC107' } }}
+                            sx={{ color: 'white', '&:hover': { color: '#c4a043' } }}
                         >
                             Productos
                         </Button>
@@ -64,7 +64,7 @@ const Header = () => {
                                 <Button
                                     color="inherit"
                                     onClick={() => navigate('/home')}
-                                    sx={{ color: 'white', '&:hover': { color: '#FFC107' } }}
+                                    sx={{ color: 'white', '&:hover': { color: '#c4a043' } }}
                                 >
                                     Home
                                 </Button>
@@ -74,7 +74,7 @@ const Header = () => {
                                         color="inherit"
                                         onClick={() => navigate('/admin/dashboard')}
                                         sx={{
-                                            color: '#FFC107',
+                                            color: '#c4a043',
                                             fontWeight: 700,
                                             '&:hover': { bgcolor: 'rgba(255, 193, 7, 0.1)' }
                                         }}
@@ -87,7 +87,7 @@ const Header = () => {
                                     <Button
                                         color="inherit"
                                         onClick={() => navigate('/orders')}
-                                        sx={{ color: 'white', '&:hover': { color: '#FFC107' } }}
+                                        sx={{ color: 'white', '&:hover': { color: '#c4a043' } }}
                                     >
                                         Mis Pedidos
                                     </Button>
@@ -97,7 +97,7 @@ const Header = () => {
                                     <IconButton
                                         color="inherit"
                                         onClick={() => navigate('/cart')}
-                                        sx={{ color: 'white', '&:hover': { color: '#FFC107' } }}
+                                        sx={{ color: 'white', '&:hover': { color: '#c4a043' } }}
                                     >
                                         <Badge badgeContent={cartCount} color="primary">
                                             <ShoppingCart />
@@ -106,7 +106,7 @@ const Header = () => {
                                 )}
 
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                    <Person sx={{ color: '#FFC107' }} />
+                                    <Person sx={{ color: '#c4a043' }} />
                                     <Typography variant="body2" sx={{ color: 'white' }}>
                                         {user?.user_name}
                                     </Typography>
@@ -114,7 +114,7 @@ const Header = () => {
                                         color="inherit"
                                         onClick={handleLogout}
                                         size="small"
-                                        sx={{ color: 'white', '&:hover': { color: '#FFC107' } }}
+                                        sx={{ color: 'white', '&:hover': { color: '#c4a043' } }}
                                     >
                                         <Logout />
                                     </IconButton>
@@ -132,8 +132,8 @@ const Header = () => {
                                         color: 'white',
                                         borderColor: 'white',
                                         '&:hover': {
-                                            borderColor: '#FFC107',
-                                            color: '#FFC107',
+                                            borderColor: '#c4a043',
+                                            color: '#c4a043',
                                         },
                                     }}
                                 >
@@ -146,8 +146,8 @@ const Header = () => {
                                         color: 'white',
                                         borderColor: 'white',
                                         '&:hover': {
-                                            borderColor: '#FFC107',
-                                            color: '#FFC107',
+                                            borderColor: '#c4a043',
+                                            color: '#c4a043',
                                         },
                                     }}
                                 >
@@ -170,3 +170,4 @@ const Header = () => {
 };
 
 export default Header;
+

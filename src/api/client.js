@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'http://localhost:8000';
 
 // Create axios instance
 const apiClient = axios.create({
@@ -8,6 +8,7 @@ const apiClient = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
+    withCredentials: true, // Required for CORS with credentials
 });
 
 // Add request interceptor to include auth token

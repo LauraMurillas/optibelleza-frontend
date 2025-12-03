@@ -66,7 +66,7 @@ const Login = () => {
                 >
                     {/* Logo */}
                     <Box sx={{ textAlign: 'center', mb: 3 }}>
-                        <Visibility sx={{ fontSize: 60, color: '#FFC107' }} />
+                        <Visibility sx={{ fontSize: 60, color: '#c4a043' }} />
                         <Typography variant="h4" sx={{ fontWeight: 700, mt: 1 }}>
                             OptiBelleza
                         </Typography>
@@ -123,7 +123,7 @@ const Login = () => {
                                     component="button"
                                     type="button"
                                     onClick={() => navigate('/register')}
-                                    sx={{ color: '#FFC107', fontWeight: 600 }}
+                                    sx={{ color: '#c4a043', fontWeight: 600 }}
                                 >
                                     Regístrate aquí
                                 </Link>
@@ -137,3 +137,4 @@ const Login = () => {
 };
 
 export default Login;
+

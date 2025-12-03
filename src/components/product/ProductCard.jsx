@@ -62,7 +62,7 @@ const ProductCard = ({ product }) => {
                         fontWeight: 600,
                         mb: 1,
                         cursor: 'pointer',
-                        '&:hover': { color: '#FFC107' },
+                        '&:hover': { color: '#c4a043' },
                     }}
                     onClick={() => navigate(`/products/${product.id}`)}
                 >
@@ -74,7 +74,7 @@ const ProductCard = ({ product }) => {
                 </Typography>
 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <Typography variant="h5" sx={{ fontWeight: 700, color: '#FFC107' }}>
+                    <Typography variant="h5" sx={{ fontWeight: 700, color: '#c4a043' }}>
                         ${product.price}
                     </Typography>
                     {product.shoes_stock > 0 ? (
@@ -102,3 +102,4 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
