@@ -37,11 +37,10 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const addToCart = async (productId, size, quantity = 1) => {
+    const addToCart = async (productId, quantity = 1) => {
         try {
             const response = await cartAPI.addItem({
                 id: productId,
-                size,
                 product_quantity: quantity,
             });
 
@@ -92,15 +91,7 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const updateSize = async (productName, size) => {
-        try {
-            await cartAPI.updateSize({ product_name: productName, size });
-            await fetchCart();
-            return { success: true };
-        } catch (error) {
-            return { success: false, message: 'Error al actualizar talla' };
-        }
-    };
+
 
     const clearCart = () => {
         setCartItems([]);
@@ -125,7 +116,6 @@ export const CartProvider = ({ children }) => {
         increaseQuantity,
         decreaseQuantity,
         removeFromCart,
-        updateSize,
         clearCart,
         fetchCart,
     };

@@ -26,7 +26,6 @@ const ProductDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [quantity, setQuantity] = useState(1);
-    const [size, setSize] = useState('');
     const [addingToCart, setAddingToCart] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -51,18 +50,12 @@ const ProductDetail = () => {
             return;
         }
 
-        if (!size) {
-            setMessage({ type: 'error', text: 'Por favor selecciona una talla' });
-            return;
-        }
-
         setAddingToCart(true);
-        const result = await addToCart(product.id, parseInt(size), quantity);
+        const result = await addToCart(product.id, quantity);
 
         if (result.success) {
             setMessage({ type: 'success', text: result.message });
             setQuantity(1);
-            setSize('');
         } else {
             setMessage({ type: 'error', text: result.message });
         }
@@ -155,27 +148,6 @@ const ProductDetail = () => {
                                 </Typography>
                             </Box>
                         )}
-
-                        {/* Size Selection */}
-                        <Box sx={{ mb: 3 }}>
-                            <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                                Talla
-                            </Typography>
-                            <TextField
-                                select
-                                fullWidth
-                                value={size}
-                                onChange={(e) => setSize(e.target.value)}
-                                SelectProps={{ native: true }}
-                            >
-                                <option value="">Selecciona una talla</option>
-                                {[38, 39, 40, 41, 42, 43, 44, 45].map((s) => (
-                                    <option key={s} value={s}>
-                                        {s}
-                                    </option>
-                                ))}
-                            </TextField>
-                        </Box>
 
                         {/* Quantity */}
                         <Box sx={{ mb: 3 }}>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import {
     Container,
     Box,
@@ -22,6 +23,7 @@ import { useCart } from '../contexts/CartContext';
 import { ordersAPI } from '../api/client';
 
 const Checkout = () => {
+    const { user } = useAuth();
     const navigate = useNavigate();
     const { cartItems, cartTotal, clearCart } = useCart();
     const [formData, setFormData] = useState({
@@ -82,7 +84,12 @@ const Checkout = () => {
         setError('');
 
         try {
-            const response = await ordersAPI.create(formData);
+            // Agregar user_id al formData si está disponible
+            const dataToSend = { ...formData };
+            if (user && user.id) {
+                dataToSend.user_id = user.id;
+            }
+            const response = await ordersAPI.create(dataToSend);
 
             // Check if backend returned a checkout URL
             if (response.data && response.data.checkout_url) {

@@ -77,7 +77,6 @@ export const cartAPI = {
     increaseQuantity: (productName) => apiClient.put('/api/cart/increase_cart_item', { product_name: productName }),
     decreaseQuantity: (productName) => apiClient.put('/api/cart/decrease_cart_item', { product_name: productName }),
     deleteItem: (name) => apiClient.get(`/api/cart/delete_cart_item/${name}`),
-    updateSize: (data) => apiClient.put('/api/cart/set_item_size', data),
 };
 
 // Orders API
